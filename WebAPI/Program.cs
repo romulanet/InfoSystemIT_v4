@@ -22,8 +22,10 @@ namespace WebAPI
 
             builder.Services.AddIdentity<User, IdentityRole>(opt =>
             {
-                opt.Password.RequiredLength = 7;
+                opt.Password.RequiredLength = 5;
                 opt.Password.RequireDigit = false;
+                opt.Password.RequireUppercase = false;
+                opt.Password.RequireNonAlphanumeric = false;
 
                 opt.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<DataDBContext>();

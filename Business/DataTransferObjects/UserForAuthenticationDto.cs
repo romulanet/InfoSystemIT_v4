@@ -4,7 +4,7 @@ namespace Business.DataTransferObjects
 {
     public class UserForAuthenticationDto
     {
-        [Required(ErrorMessage = "Name is required.")]
+        [Required(ErrorMessage = "First Name is required.")]
         public string? Name { get; set; }
 
         [Required(ErrorMessage = "Password is required.")]
