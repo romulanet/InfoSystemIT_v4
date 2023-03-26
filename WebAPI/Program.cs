@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
+using Serilog.Events;
+using Serilog;
 using System.Text;
 using WebAPI.JwtFeatures;
 
@@ -13,6 +15,12 @@ namespace WebAPI
     {
         public static void Main(string[] args)
         {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .WriteTo.File("./Log/InfoSystemITLog.txt", rollingInterval:
+                    RollingInterval.Day)
+                .CreateLogger();
+
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.ConfigureCors();
