@@ -4,8 +4,7 @@ using WebAPI.JwtFeatures;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
-using Business.DataTransferObjects;
-
+using Business.AuthDTO;
 
 namespace webapi.Controllers
 {

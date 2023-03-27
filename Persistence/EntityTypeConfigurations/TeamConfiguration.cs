@@ -8,10 +8,10 @@ namespace Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Team> builder)
         {
-            builder.HasKey(note => note.Id);
-            builder.HasIndex(note => note.Id).IsUnique();
-            builder.Property(note => note.TeamTitle).HasMaxLength(50);
-            builder.Property(note => note.TeamDescription).HasMaxLength(500);
+            builder.HasKey(team => team.Id);
+            builder.HasIndex(team => team.Id).IsUnique();
+            builder.Property(team => team.TeamTitle).HasMaxLength(50);
+            builder.Property(team => team.TeamDescription).HasMaxLength(500);
         }
     }
 }

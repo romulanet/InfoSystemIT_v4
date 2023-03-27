@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Business.DataTransferObjects;
+using Business.AuthDTO;
 using Domain.Entities;
 
-namespace webapi.Mapping
+namespace WebApi.Mapping
 {
     public class MappingProfile : Profile
     {

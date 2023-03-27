@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Business.DataTransferObjects
+namespace Business.AuthDTO
 {
     public class UserForRegistrationDto
     {

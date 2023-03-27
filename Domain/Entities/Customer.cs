@@ -4,8 +4,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Entities
 {
-    public class Customer : CreateUpdateInfo
+    public sealed class Customer : CreateUpdateInfo
     {
+        public Customer(string firstName, string lastName)
+            : this()
+        {
+            CustomerFName = firstName;
+            CustomerLName = lastName;
+        }
+
+        public Customer()
+        {
+        }
         [Key]
         public Guid Id { get; set; }
         public string CustomerFName { get; set; }
@@ -20,10 +30,6 @@ namespace Domain.Entities
         //Навигационные свойства
         public ICollection<Contract>? Contracts { get; set; }
 
-        //Доступ
-        [NotMapped]
-        public Guid UserId { get; set; }
-
-        //public IList<User> Users { get; set; }
+        public void Update(string firstName, string lastName) => (CustomerFName, CustomerLName) = (firstName, lastName);
     }
 }

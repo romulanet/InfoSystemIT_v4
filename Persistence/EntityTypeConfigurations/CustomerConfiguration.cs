@@ -3,16 +3,17 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domain.Entities;
 using Business.Common.Constants;
 
+
 namespace Persistence.EntityTypeConfigurations
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
     {
         public void Configure(EntityTypeBuilder<Customer> builder)
         {
-            builder.HasKey(note => note.Id);
-            builder.HasIndex(note => note.Id).IsUnique();
-            builder.Property(note => note.CustomerCompanyTitle).HasMaxLength(50);
-            builder.Property(note => note.CustomerCountry).HasMaxLength(25);
+            builder.HasKey(customer => customer.Id);
+            builder.HasIndex(customer => customer.Id).IsUnique();
+            builder.Property(customer => customer.CustomerCompanyTitle).HasMaxLength(50);
+            builder.Property(customer => customer.CustomerCountry).HasMaxLength(25);
             builder.HasData
             (
                 new Customer

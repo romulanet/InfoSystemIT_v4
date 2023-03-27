@@ -1,4 +1,4 @@
-﻿namespace Business.DataTransferObjects
+﻿namespace Business.AuthDTO
 {
     public class AuthResponseDto
     {

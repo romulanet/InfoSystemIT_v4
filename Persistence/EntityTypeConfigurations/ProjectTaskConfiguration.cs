@@ -8,10 +8,10 @@ namespace Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<ProjectTask> builder)
         {
-            builder.HasKey(note => note.Id);
-            builder.HasIndex(note => note.Id).IsUnique();
-            builder.Property(note => note.TaskTitle).HasMaxLength(50);
-            builder.Property(note => note.TaskDescription).HasMaxLength(500);
+            builder.HasKey(prtask => prtask.Id);
+            builder.HasIndex(prtask => prtask.Id).IsUnique();
+            builder.Property(prtask => prtask.TaskTitle).HasMaxLength(50);
+            builder.Property(prtask => prtask.TaskDescription).HasMaxLength(500);
         }
     }
 }
