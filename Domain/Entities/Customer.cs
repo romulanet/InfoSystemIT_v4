@@ -31,5 +31,6 @@ namespace Domain.Entities
         public ICollection<Contract>? Contracts { get; set; }
 
         public void Update(string firstName, string lastName) => (CustomerFName, CustomerLName) = (firstName, lastName);
+
     }
 }

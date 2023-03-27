@@ -6,9 +6,9 @@ namespace Business.CQRS.CustomerUnit.Commands.CreateCustomer
     {
         public CreateCustomerCommandValidator()
         {
-            RuleFor(x => x.FirstName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.CustomerFName).NotEmpty().MaximumLength(25);
 
-            RuleFor(x => x.LastName).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.CustomerLName).NotEmpty().MaximumLength(25);
         }
     }
 }

@@ -12,5 +12,7 @@ namespace Domain.Repositories
         Task<Customer> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default);
 
         void Insert(Customer customer);
+
+        void Remove(Customer customer);
     }
 }

@@ -21,5 +21,7 @@ namespace Persistence.Repositories
             _dbContext.Customers.FirstOrDefaultAsync(customer => customer.Id == customerId, cancellationToken);
 
         public void Insert(Customer customer) => _dbContext.Customers.Add(customer);
+
+        public void Remove(Customer customer) => _dbContext.Customers.Remove(customer);
     }
 }
