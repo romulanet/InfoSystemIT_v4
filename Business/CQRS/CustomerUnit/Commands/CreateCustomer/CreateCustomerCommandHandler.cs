@@ -1,12 +1,9 @@
-﻿using System.Reflection.Metadata;
-using System.Threading;
-using System.Threading.Tasks;
-using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messaging;
+using Business.Common.Constants;
 using Business.Contracts.CustomerResponse;
 using Domain.Entities;
 using Domain.Repositories;
 using Mapster;
-using Business.Common.Constants;
 
 namespace Business.CQRS.CustomerUnit.Commands.CreateCustomer
 {

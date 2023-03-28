@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Business.Abstractions.Messaging
+﻿namespace Business.Abstractions.Messaging
 {
     public interface IIdempotentCommand<out TResponse> : ICommand<TResponse>
     {

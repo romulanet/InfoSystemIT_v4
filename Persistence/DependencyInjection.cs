@@ -1,5 +1,4 @@
-﻿using Business.Interfaces;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,7 +23,7 @@ namespace Persistence
         public static IServiceCollection AddPersistence(this IServiceCollection
             services)
         {
-            
+
             //services.AddScoped<ICustomerDbContext>(provider =>
             //    provider.GetService<DataDBContext>());
             return services;

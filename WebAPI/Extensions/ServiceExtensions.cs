@@ -1,16 +1,6 @@
 ﻿//using CompanyEmployees.Contracts;
 //using Microsoft.EntityFrameworkCore;
 //using CompanyEmployees.Repository;
-using Business.Behaviors;
-using Domain.Repositories;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Serilog;
-using Serilog.Events;
-using static System.Net.Mime.MediaTypeNames;
-using Persistence.Repositories;
-using WebAPI.Middleware;
-using Business;
 
 namespace WebAPI.Extensions
 {
@@ -29,9 +19,9 @@ namespace WebAPI.Extensions
             services.Configure<IISOptions>(options =>
             {
 
-            });    
-        
-       
+            });
+
+
         //public static void ConfigureRepositoryManager(this IServiceCollection services) =>
         //   services.AddScoped<IRepositoryManager, RepositoryManager>();
 

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messaging;
 using Business.Contracts.CustomerResponse;
 using Domain.Repositories;
 using Mapster;

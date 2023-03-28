@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
 {
-    public  sealed class CustomerRepository : ICustomerRepository
+    public sealed class CustomerRepository : ICustomerRepository
     {
         private readonly DataDBContext _dbContext;
 

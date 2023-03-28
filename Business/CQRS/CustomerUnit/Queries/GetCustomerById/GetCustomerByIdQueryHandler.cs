@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messaging;
 using Business.Contracts.CustomerResponse;
 using Domain.Exceptions;
 using Domain.Repositories;

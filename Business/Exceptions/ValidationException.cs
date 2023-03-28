@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using ApplicationException = Domain.Exceptions.ApplicationException;
+﻿using ApplicationException = Domain.Exceptions.ApplicationException;
 
 namespace Business.Exceptions
 {

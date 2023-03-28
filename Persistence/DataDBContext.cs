@@ -1,14 +1,14 @@
 ﻿//using Business.Interfaces;
 using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Persistence.EntityTypeConfigurations;
 
 
 namespace Persistence
 {
-    public class DataDBContext  : IdentityDbContext<User> /*IdentityDbContext<User>,*/ /*ICustomerDbContext, IContactDbContext, IProjectDbContext,*/
-        //IProjectTaskDbContext, ITeamDbContext, IEmployeeDbContext
+    public class DataDBContext : IdentityDbContext<User> /*IdentityDbContext<User>,*/ /*ICustomerDbContext, IContactDbContext, IProjectDbContext,*/
+    //IProjectTaskDbContext, ITeamDbContext, IEmployeeDbContext
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Contract> Contracts { get; set; }

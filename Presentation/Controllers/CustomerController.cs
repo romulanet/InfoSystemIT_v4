@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Business.Contracts.CustomerResponse;
+﻿using Business.Contracts.CustomerResponse;
 using Business.CQRS.CustomerUnit.Commands.CreateCustomer;
-using Business.CQRS.CustomerUnit.Commands.UpdateCustomer;
-using Business.CQRS.CustomerUnit.Queries.GetCustomerById;
-using Business.CQRS.CustomerUnit.Queries.GetCustomer;
 using Business.CQRS.CustomerUnit.Commands.DeleteCustomer;
+using Business.CQRS.CustomerUnit.Commands.UpdateCustomer;
+using Business.CQRS.CustomerUnit.Queries.GetCustomer;
+using Business.CQRS.CustomerUnit.Queries.GetCustomerById;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Presentation.Controllers
 {
@@ -40,6 +39,7 @@ namespace Presentation.Controllers
         [ProducesResponseType(typeof(List<CustomerResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(CancellationToken cancellationToken)
         {
+
             var query = new GetCustomerQuery();
 
             var customer = await _sender.Send(query, cancellationToken);

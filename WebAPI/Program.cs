@@ -1,58 +1,24 @@
+using Business.Behaviors;
 using Domain.Entities;
+using Domain.Repositories;
+using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
-using Serilog.Events;
+using Persistence.Repositories;
 using Serilog;
+using Serilog.Events;
 using System.Text;
 using WebAPI.JwtFeatures;
-using FluentValidation;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.AspNetCore.Hosting;
-using Business.Behaviors;
-using Domain.Repositories;
-using Persistence.Repositories;
 using WebAPI.Middleware;
 
 namespace WebAPI
 {
     public class Program
     {
-        //public static async Task Main(string[] args)
-        //{
-        //    Log.Logger = new LoggerConfiguration()
-        //        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-        //        .WriteTo.File("./Log/InfoSystemITLog.txt", rollingInterval:
-        //            RollingInterval.Day)
-        //        .CreateLogger();
-
-        //    var webHost = CreateHostBuilder(args).Build();
-
-        //    await ApplyMigrations(webHost.Services);
-
-        //    await webHost.RunAsync();
-        //}
-
-        //private static async Task ApplyMigrations(IServiceProvider serviceProvider)
-        //{
-        //    using var scope = serviceProvider.CreateScope();
-
-        //    await using DataDBContext dbContext = scope.ServiceProvider.GetRequiredService<DataDBContext>();
-
-        //    await dbContext.Database.MigrateAsync();
-        //}
-
-        //public static IHostBuilder CreateHostBuilder(string[] args) =>
-        //Host.CreateDefaultBuilder(args)
-        //        .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
-
-
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
@@ -134,14 +100,10 @@ namespace WebAPI
                 }
                 catch (Exception exception)
                 {
-                    //Log.Fatal(exception, "An error occurred while app initialization");
+                    Log.Fatal(exception, "An error occurred while app initialization");
                 }
             }
-            //if (app.Environment.IsDevelopment())
-            //{
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI();
-            //}
+            
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Business.Exceptions;
+﻿using Business.Exceptions;
 using Domain.Exceptions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
+using System.Text.Json;
 using ApplicationException = Domain.Exceptions.ApplicationException;
 
 namespace WebAPI.Middleware

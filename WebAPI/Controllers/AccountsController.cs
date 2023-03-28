@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
+using Business.AuthDTO;
 using Domain.Entities;
-using WebAPI.JwtFeatures;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
-using Business.AuthDTO;
+using WebAPI.JwtFeatures;
 
 namespace webapi.Controllers
 {
