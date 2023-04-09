@@ -2,6 +2,7 @@
 using Domain.Exceptions;
 using Domain.Repositories;
 using MediatR;
+using Business.Common.Constants;
 
 namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
 {
@@ -25,8 +26,18 @@ namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
                 throw new EntityNotFoundException(request.Id);
             }
 
-            customer.Update(request.CustomerFName, request.CustomerLName);
-
+            customer.UpdatedBy = Constants.UserName.System;
+            customer.UpdatedOn = DateTime.Now;
+            customer.Update(
+                request.CustomerFName, 
+                request.CustomerMName,
+                request.CustomerLName,
+                request.CustomerCompanyTitle,
+                request.CustomerCountry,
+                request.CustomerTelNumber,
+                request.CustomerMailAddress,
+                request.CustomerPostAddress
+                );
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;

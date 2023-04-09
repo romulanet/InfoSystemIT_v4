@@ -1,4 +1,5 @@
-﻿using Business.Contracts.CustomerResponse;
+﻿using Business.Common.Constants;
+using Business.Contracts.CustomerResponse;
 using Business.CQRS.CustomerUnit.Commands.CreateCustomer;
 using Business.CQRS.CustomerUnit.Commands.DeleteCustomer;
 using Business.CQRS.CustomerUnit.Commands.UpdateCustomer;
@@ -98,7 +99,13 @@ namespace Presentation.Controllers
             {
                 Id = customerId,
                 CustomerFName = request.CustomerFName,
+                CustomerMName = request.CustomerMName,
                 CustomerLName = request.CustomerLName,
+                CustomerCompanyTitle = request.CustomerCompanyTitle,
+                CustomerCountry = request.CustomerCountry,
+                CustomerTelNumber = request.CustomerTelNumber,
+                CustomerMailAddress = request.CustomerMailAddress,
+                CustomerPostAddress = request.CustomerPostAddress,
             };
 
             await _sender.Send(command, cancellationToken);

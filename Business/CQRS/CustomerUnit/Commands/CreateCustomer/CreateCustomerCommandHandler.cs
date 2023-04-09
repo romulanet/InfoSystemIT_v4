@@ -20,7 +20,16 @@ namespace Business.CQRS.CustomerUnit.Commands.CreateCustomer
 
         public async Task<CustomerResponse> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var customer = new Customer(request.CustomerFName, request.CustomerLName);
+            var customer = new Customer(
+                request.CustomerFName,
+                request.CustomerMName,
+                request.CustomerLName,
+                request.CustomerCompanyTitle,
+                request.CustomerCountry,
+                request.CustomerTelNumber,
+                request.CustomerMailAddress,
+                request.CustomerPostAddress
+                );
             customer.CreatedOn = DateTime.Now;
             customer.CreatedBy = Constants.UserName.System;
 
