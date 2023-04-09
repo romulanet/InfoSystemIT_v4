@@ -3,5 +3,5 @@ using MediatR;
 
 namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
 {
-    public sealed record UpdateCustomerCommand(Guid CustomerId, string FirstName, string LastName) : ICommand<Unit>;
+    public sealed record UpdateCustomerCommand(Guid Id, string CustomerFName, string CustomerLName) : ICommand<Unit>;
 }

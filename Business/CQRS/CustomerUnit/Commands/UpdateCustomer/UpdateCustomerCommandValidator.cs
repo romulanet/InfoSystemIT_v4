@@ -6,11 +6,11 @@ namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
     {
         public UpdateCustomerCommandValidator()
         {
-            RuleFor(x => x.CustomerId).NotEmpty();
+            RuleFor(x => x.Id).NotEmpty();
 
-            RuleFor(x => x.FirstName).NotEmpty().MaximumLength(25);
+            RuleFor(x => x.CustomerFName).NotEmpty().MaximumLength(25);
 
-            RuleFor(x => x.LastName).NotEmpty().MaximumLength(25);
+            RuleFor(x => x.CustomerLName).NotEmpty().MaximumLength(25);
         }
     }
 }

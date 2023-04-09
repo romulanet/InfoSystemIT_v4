@@ -18,14 +18,14 @@ namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
 
         public async Task<Unit> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var customer = await _customerRepository.GetByIdAsync(request.CustomerId, cancellationToken);
+            var customer = await _customerRepository.GetByIdAsync(request.Id, cancellationToken);
 
             if (customer is null)
             {
-                throw new EntityNotFoundException(request.CustomerId);
+                throw new EntityNotFoundException(request.Id);
             }
 
-            customer.Update(request.FirstName, request.LastName);
+            customer.Update(request.CustomerFName, request.CustomerLName);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 

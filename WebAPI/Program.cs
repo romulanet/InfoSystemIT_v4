@@ -120,6 +120,7 @@ namespace WebAPI
                         context.Request.Path = "/index.html"; await next();
                     }
                 });
+
                 app.UseHsts();
             }
             app.UseHttpsRedirection();

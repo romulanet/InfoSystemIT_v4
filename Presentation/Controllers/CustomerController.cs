@@ -96,7 +96,9 @@ namespace Presentation.Controllers
         {
             var command = request.Adapt<UpdateCustomerCommand>() with
             {
-                CustomerId = customerId
+                Id = customerId,
+                CustomerFName = request.CustomerFName,
+                CustomerLName = request.CustomerLName,
             };
 
             await _sender.Send(command, cancellationToken);
