@@ -73,6 +73,7 @@ namespace WebAPI
             builder.Services.AddScoped<JwtHandler>();
 
             builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+            builder.Services.AddScoped<IContractRepository, ContractRepository>();
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

@@ -7,10 +7,10 @@ namespace Business.CQRS.CustomerUnit.Commands.DeleteCustomer
 {
     internal sealed class DeleteCustomerCommandHandler : ICommandHandler<DeleteCustomerCommand, Unit>
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IContractRepository _customerRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteCustomerCommandHandler(ICustomerRepository customerRepository, IUnitOfWork unitOfWork)
+        public DeleteCustomerCommandHandler(IContractRepository customerRepository, IUnitOfWork unitOfWork)
         {
             _customerRepository = customerRepository;
             _unitOfWork = unitOfWork;

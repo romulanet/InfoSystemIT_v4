@@ -35,9 +35,9 @@ namespace Domain.Entities
         //Навигационные свойства
         public ICollection<Contract>? Contracts { get; set; }
 
-        public void Update(string firstName,string middlename, string lastName, string companyTitle, string country,string telnumber,string mailAdress, string postAdress/*, string updateBy,DateTime updateOn*/)
-            => (CustomerFName, CustomerMName, CustomerLName, CustomerCompanyTitle, CustomerCountry, CustomerTelNumber, CustomerMailAddress, CustomerPostAddress/*, UpdatedBy, UpdatedOn*/)
-            = (firstName, middlename, lastName, companyTitle, country, telnumber, mailAdress, postAdress/*, updateBy, updateOn*/);
+        public void Update(string firstName,string middlename, string lastName, string companyTitle, string country,string telnumber,string mailAdress, string postAdress)
+            => (CustomerFName, CustomerMName, CustomerLName, CustomerCompanyTitle, CustomerCountry, CustomerTelNumber, CustomerMailAddress, CustomerPostAddress)
+            = (firstName, middlename, lastName, companyTitle, country, telnumber, mailAdress, postAdress);
 
     }
 }

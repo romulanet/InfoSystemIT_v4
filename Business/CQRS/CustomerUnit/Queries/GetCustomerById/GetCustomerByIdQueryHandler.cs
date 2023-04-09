@@ -8,9 +8,9 @@ namespace Business.CQRS.CustomerUnit.Queries.GetCustomerById
 {
     internal sealed class GetCustomerByIdQueryHandler : IQueryHandler<GetCustomerByIdQuery, CustomerResponse>
     {
-        private readonly ICustomerRepository _userRepository;
+        private readonly IContractRepository _userRepository;
 
-        public GetCustomerByIdQueryHandler(ICustomerRepository userRepository) => _userRepository = userRepository;
+        public GetCustomerByIdQueryHandler(IContractRepository userRepository) => _userRepository = userRepository;
 
         public async Task<CustomerResponse> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
