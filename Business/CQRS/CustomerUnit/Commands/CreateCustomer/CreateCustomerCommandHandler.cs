@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Common.Constants;
 using Business.Contracts.CustomerResponse;
 using Domain.Entities;
@@ -20,7 +20,7 @@ namespace Business.CQRS.CustomerUnit.Commands.CreateCustomer
 
         public async Task<CustomerResponse> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
         {
-            var customer = new Customer(
+            var employee = new Customer(
                 request.CustomerFName,
                 request.CustomerMName,
                 request.CustomerLName,
@@ -30,14 +30,14 @@ namespace Business.CQRS.CustomerUnit.Commands.CreateCustomer
                 request.CustomerMailAddress,
                 request.CustomerPostAddress
                 );
-            customer.CreatedOn = DateTime.Now;
-            customer.CreatedBy = Constants.UserName.System;
+            employee.CreatedOn = DateTime.Now;
+            employee.CreatedBy = Constants.UserName.System;
 
-            _customerRepository.Insert(customer);
+            _customerRepository.Insert(employee);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-            return customer.Adapt<CustomerResponse>();
+            return employee.Adapt<CustomerResponse>();
         }
     }
 }

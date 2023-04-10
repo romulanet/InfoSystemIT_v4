@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Contracts.CustomerResponse;
 using Business.Exceptions;
 using Domain.IRepositories;
@@ -8,9 +8,9 @@ namespace Business.CQRS.CustomerUnit.Queries.GetCustomerById
 {
     internal sealed class GetCustomerByIdQueryHandler : IQueryHandler<GetCustomerByIdQuery, CustomerResponse>
     {
-        private readonly IContractRepository _userRepository;
+        private readonly ICustomerRepository _userRepository;
 
-        public GetCustomerByIdQueryHandler(IContractRepository userRepository) => _userRepository = userRepository;
+        public GetCustomerByIdQueryHandler(ICustomerRepository userRepository) => _userRepository = userRepository;
 
         public async Task<CustomerResponse> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {

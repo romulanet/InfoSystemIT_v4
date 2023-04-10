@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Contracts.ContractResponse;
 using Domain.IRepositories;
 using Mapster;

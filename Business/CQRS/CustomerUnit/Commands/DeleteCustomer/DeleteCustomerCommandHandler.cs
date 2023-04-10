@@ -1,16 +1,16 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Exceptions;
 using Domain.IRepositories;
 using MediatR;
 
 namespace Business.CQRS.CustomerUnit.Commands.DeleteCustomer
 {
-    internal sealed class DeleteCustomerCommandHandler : ICommandHandler<DeleteCustomerCommand, Unit>
+    internal sealed class DeleteEmployeeCommandHandler : ICommandHandler<DeleteCustomerCommand, Unit>
     {
-        private readonly IContractRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteCustomerCommandHandler(IContractRepository customerRepository, IUnitOfWork unitOfWork)
+        public DeleteEmployeeCommandHandler(ICustomerRepository customerRepository, IUnitOfWork unitOfWork)
         {
             _customerRepository = customerRepository;
             _unitOfWork = unitOfWork;

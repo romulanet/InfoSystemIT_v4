@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Contracts.ContractResponse;
 using Business.Exceptions;
 using Domain.IRepositories;

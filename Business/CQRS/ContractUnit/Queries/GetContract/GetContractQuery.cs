@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Contracts.ContractResponse;
 
 namespace Business.CQRS.ContractUnit.Queries.GetContract

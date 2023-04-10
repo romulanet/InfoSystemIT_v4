@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Exceptions;
 using Domain.IRepositories;
 using MediatR;

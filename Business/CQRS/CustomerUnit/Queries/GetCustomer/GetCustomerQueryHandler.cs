@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Contracts.CustomerResponse;
 using Domain.IRepositories;
 using Mapster;
@@ -7,9 +7,9 @@ namespace Business.CQRS.CustomerUnit.Queries.GetCustomer
 {
     internal sealed class GetCustomerQueryHandler : IQueryHandler<GetCustomerQuery, List<CustomerResponse>>
     {
-        private readonly IContractRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public GetCustomerQueryHandler(IContractRepository userRepository) => _customerRepository = userRepository;
+        public GetCustomerQueryHandler(ICustomerRepository userRepository) => _customerRepository = userRepository;
 
         public async Task<List<CustomerResponse>> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
         {

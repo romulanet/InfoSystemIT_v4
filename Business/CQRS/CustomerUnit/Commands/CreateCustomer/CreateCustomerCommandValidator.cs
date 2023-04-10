@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Business.CQRS.CustomerUnit.Commands.CreateCustomer;
+using FluentValidation;
 
 namespace Business.CQRS.CustomerUnit.Commands.CreateCustomer
 {

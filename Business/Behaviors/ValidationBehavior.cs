@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using FluentValidation;
 using MediatR;
 using ValidationException = Business.Exceptions.ValidationException;

@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using Business.Common.Constants;
 using Business.Contracts.ContractResponse;
 using Domain.Entities;

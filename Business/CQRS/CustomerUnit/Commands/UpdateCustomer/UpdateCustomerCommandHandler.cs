@@ -1,8 +1,8 @@
-﻿using Business.Abstractions.Messaging;
-using Business.Exceptions;
+﻿using Business.Exceptions;
 using MediatR;
 using Business.Common.Constants;
 using Domain.IRepositories;
+using Business.Abstractions.Messages;
 
 namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
 {

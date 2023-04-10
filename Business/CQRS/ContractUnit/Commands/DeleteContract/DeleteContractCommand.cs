@@ -1,4 +1,4 @@
-﻿using Business.Abstractions.Messaging;
+﻿using Business.Abstractions.Messages;
 using MediatR;
 
 namespace Business.CQRS.ContractUnit.Commands.DeleteContract
