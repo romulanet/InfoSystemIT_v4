@@ -1,6 +1,6 @@
 ﻿using Business.Abstractions.Messaging;
 using Business.Contracts.CustomerResponse;
-using Domain.Repositories;
+using Domain.IRepositories;
 using Mapster;
 
 namespace Business.CQRS.CustomerUnit.Queries.GetCustomer

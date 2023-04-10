@@ -1,9 +1,9 @@
 ﻿using Domain.Entities;
 
-namespace Domain.Repositories
+namespace Domain.IRepositories
 {
     public interface ICustomerRepository
-    { 
+    {
         Task<List<Customer>> GetAsync(CancellationToken cancellationToken = default);
 
         Task<Customer> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default);

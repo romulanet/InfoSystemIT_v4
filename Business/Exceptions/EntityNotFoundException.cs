@@ -1,4 +1,4 @@
-﻿namespace Domain.Exceptions
+﻿namespace Business.Exceptions
 {
     public sealed class EntityNotFoundException : NotFoundException
     {

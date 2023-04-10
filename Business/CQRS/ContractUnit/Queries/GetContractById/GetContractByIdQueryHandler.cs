@@ -1,7 +1,7 @@
 ﻿using Business.Abstractions.Messaging;
 using Business.Contracts.ContractResponse;
-using Domain.Exceptions;
-using Domain.Repositories;
+using Business.Exceptions;
+using Domain.IRepositories;
 using Mapster;
 
 namespace Business.CQRS.ContractUnit.Queries.GetContractById

@@ -1,4 +1,4 @@
-﻿namespace Domain.Repositories
+﻿namespace Domain.IRepositories
 {
     public interface IUnitOfWork
     {

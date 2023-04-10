@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Repositories
+namespace Domain.IRepositories
 {
-    public  interface IEmployeeRepository
+    public interface IEmployeeRepository
     {
         Task<List<Employee>> GetAsync(CancellationToken cancellationToken = default);
 

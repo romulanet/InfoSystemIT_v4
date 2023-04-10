@@ -1,7 +1,6 @@
 ﻿using Business.Exceptions;
-using Domain.Exceptions;
 using System.Text.Json;
-using ApplicationException = Domain.Exceptions.ApplicationException;
+using ApplicationException = Business.Exceptions.ApplicationException;
 
 namespace WebAPI.Middleware
 {

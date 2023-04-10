@@ -2,7 +2,7 @@
 using Business.Common.Constants;
 using Business.Contracts.ContractResponse;
 using Domain.Entities;
-using Domain.Repositories;
+using Domain.IRepositories;
 using Mapster;
 
 namespace Business.CQRS.ContractUnit.Commands.CreateContract

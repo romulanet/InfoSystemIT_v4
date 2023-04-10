@@ -1,4 +1,4 @@
-﻿using ApplicationException = Domain.Exceptions.ApplicationException;
+﻿using ApplicationException = Business.Exceptions.ApplicationException;
 
 namespace Business.Exceptions
 {

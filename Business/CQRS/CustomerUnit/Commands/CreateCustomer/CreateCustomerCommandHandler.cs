@@ -2,7 +2,7 @@
 using Business.Common.Constants;
 using Business.Contracts.CustomerResponse;
 using Domain.Entities;
-using Domain.Repositories;
+using Domain.IRepositories;
 using Mapster;
 
 namespace Business.CQRS.CustomerUnit.Commands.CreateCustomer
