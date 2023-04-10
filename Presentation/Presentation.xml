@@ -106,5 +106,29 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>No content.</returns>
         </member>
+        <member name="M:Presentation.Controllers.EmployeeController.#ctor(MediatR.ISender)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Presentation.Controllers.ContractController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectController.#ctor(MediatR.ISender)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Presentation.Controllers.ContractController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectTaskController.#ctor(MediatR.ISender)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Presentation.Controllers.ContractController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Presentation.Controllers.TeamController.#ctor(MediatR.ISender)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Presentation.Controllers.ContractController"/> class.
+            </summary>
+            <param name="sender"></param>
+        </member>
     </members>
 </doc>

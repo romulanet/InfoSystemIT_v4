@@ -74,6 +74,10 @@ namespace WebAPI
 
             builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
             builder.Services.AddScoped<IContractRepository, ContractRepository>();
+            builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+            builder.Services.AddScoped<IProjectTaskRepository, ProjectTaskRepository>();
+            builder.Services.AddScoped<ITeamRepository, TeamRepository>();
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

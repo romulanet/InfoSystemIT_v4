@@ -5,6 +5,16 @@ namespace Domain.Entities
 {
     public class Team : CreateUpdateInfo
     {
+        public Team(string title, string description)
+          : this()
+        {
+            TeamTitle = title;
+            TeamDescription = description;
+
+        }
+        public Team()
+        {
+        }
         [Key]
         public Guid Id { get; set; }
         public string TeamTitle { get; set; }
@@ -14,6 +24,10 @@ namespace Domain.Entities
 
         public ICollection<Project>? Projects { get; set; }
         public ICollection<Employee>? Employees { get; set; }
+
+        public void Update(string title, string description)
+           => (TeamTitle, TeamDescription)
+           = ( title,  description);
 
     }
 }
