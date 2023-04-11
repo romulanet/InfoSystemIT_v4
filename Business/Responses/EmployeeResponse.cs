@@ -1,11 +1,11 @@
-﻿namespace Business.Contracts.EmployeeResponse
+﻿namespace Business.Responses
 {
     public sealed record EmployeeResponse(
-        Guid Id, 
-        string EmployeeFName, 
+        Guid Id,
+        string EmployeeFName,
         string EmployeeMName,
         string EmployeeLName,
-        string EmployeeJobTitle, 
+        string EmployeeJobTitle,
         string EmployeeTelNumber,
         string EmployeeMailAddress,
         string EmployeePostAddress,

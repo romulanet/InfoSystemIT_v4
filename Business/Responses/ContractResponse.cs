@@ -1,4 +1,4 @@
-﻿namespace Business.Contracts.ContractResponse
+﻿namespace Business.Responses
 {
     public sealed record ContractResponse(
         Guid Id,

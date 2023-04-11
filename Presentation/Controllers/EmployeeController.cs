@@ -1,5 +1,4 @@
-﻿using Business.Contracts.EmployeeResponse;
-using Business.CQRS.EmployeeUnit.Commands.CreateEmployee;
+﻿using Business.CQRS.EmployeeUnit.Commands.CreateEmployee;
 using Business.CQRS.EmployeeUnit.Queries.GetEmployeeById;
 using Business.CQRS.EmployeeUnit.Queries.GetEmployee;
 using Business.CQRS.EmployeeUnit.Commands.UpdateEmployee;
@@ -14,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Mapster;
+using Business.Responses;
 
 namespace Presentation.Controllers
 {    /// <summary>

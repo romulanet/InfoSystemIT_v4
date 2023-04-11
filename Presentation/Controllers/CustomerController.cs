@@ -1,10 +1,10 @@
 ﻿using Business.Common.Constants;
-using Business.Contracts.CustomerResponse;
 using Business.CQRS.CustomerUnit.Commands.CreateCustomer;
 using Business.CQRS.CustomerUnit.Commands.DeleteCustomer;
 using Business.CQRS.CustomerUnit.Commands.UpdateCustomer;
 using Business.CQRS.CustomerUnit.Queries.GetCustomer;
 using Business.CQRS.CustomerUnit.Queries.GetCustomerById;
+using Business.Responses;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Http;

@@ -1,11 +1,11 @@
-﻿namespace Business.Contracts.CustomerResponse
+﻿namespace Business.Responses
 {
     public sealed record CustomerResponse(
-        Guid Id, 
-        string CustomerFName, 
+        Guid Id,
+        string CustomerFName,
         string CustomerMName,
         string CustomerLName,
-        string CustomerCompanyTitle, 
+        string CustomerCompanyTitle,
         string CustomerCountry,
         string CustomerTelNumber,
         string CustomerMailAddress,

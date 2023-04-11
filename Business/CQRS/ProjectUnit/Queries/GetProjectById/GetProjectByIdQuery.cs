@@ -1,5 +1,5 @@
 ﻿using Business.Abstractions.Messages;
-using Business.Contracts.ProjectResponse;
+using Business.Responses;
 
 namespace Business.CQRS.ProjectUnit.Queries.GetProjectById
 {

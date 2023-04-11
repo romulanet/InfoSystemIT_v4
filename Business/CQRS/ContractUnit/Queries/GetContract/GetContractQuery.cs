@@ -1,5 +1,5 @@
 ﻿using Business.Abstractions.Messages;
-using Business.Contracts.ContractResponse;
+using Business.Responses;
 
 namespace Business.CQRS.ContractUnit.Queries.GetContract
 {

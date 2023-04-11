@@ -1,5 +1,5 @@
 ﻿using Business.Abstractions.Messages;
-using Business.Contracts.CustomerResponse;
+using Business.Responses;
 using Domain.IRepositories;
 using Mapster;
 

@@ -1,5 +1,4 @@
 ﻿using Business.Common.Constants;
-using Business.Contracts.ContractResponse;
 using Business.CQRS.ContractUnit.Commands.CreateContract;
 using Business.CQRS.ContractUnit.Commands.UpdateContract;
 using Business.CQRS.ContractUnit.Commands.DeleteContract;
@@ -13,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Business.Responses;
 
 namespace Presentation.Controllers
 {

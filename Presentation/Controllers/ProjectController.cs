@@ -1,5 +1,4 @@
 ﻿using Business.Common.Constants;
-using Business.Contracts.ProjectResponse;
 using Business.CQRS.ProjectUnit.Commands.CreateProject;
 using Business.CQRS.ProjectUnit.Commands.UpdateProject;
 using Business.CQRS.ProjectUnit.Commands.DeleteProject;
@@ -13,11 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Business.Responses;
 
 namespace Presentation.Controllers
-{
-    /// <summary>
+{   /// <summary>
     /// The users controller.
     /// </summary>
     [ApiController]

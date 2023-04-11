@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Contracts.ProjectResponse
+namespace Business.Responses
 {
     public sealed record ProjectResponse(
         Guid Id,

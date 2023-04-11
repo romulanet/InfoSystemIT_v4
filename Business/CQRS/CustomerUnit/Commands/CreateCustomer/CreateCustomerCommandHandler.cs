@@ -1,6 +1,6 @@
 ﻿using Business.Abstractions.Messages;
 using Business.Common.Constants;
-using Business.Contracts.CustomerResponse;
+using Business.Responses;
 using Domain.Entities;
 using Domain.IRepositories;
 using Mapster;
