@@ -119,7 +119,7 @@ namespace Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid contractId, CancellationToken cancellationToken)
         {
-            var command = new DeleteContractCommand(contractId);
+            var command = new DeleteProjectCommand(contractId);
 
             var contract = await _sender.Send(command, cancellationToken);
 

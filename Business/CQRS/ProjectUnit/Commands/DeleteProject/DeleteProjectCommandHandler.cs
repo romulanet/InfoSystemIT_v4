@@ -3,29 +3,29 @@ using Business.Exceptions;
 using Domain.IRepositories;
 using MediatR;
 
-namespace Business.CQRS.ContractUnit.Commands.DeleteContract
+namespace Business.CQRS.ProjectUnit.Commands.DeleteProject
 {
     internal sealed class DeleteProjectCommandHandler : ICommandHandler<DeleteProjectCommand, Unit>
     {
-        private readonly IContractRepository _contractRepository;
+        private readonly IProjectRepository _projectRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteProjectCommandHandler(IContractRepository contractRepository, IUnitOfWork unitOfWork)
+        public DeleteProjectCommandHandler(IProjectRepository projectRepository, IUnitOfWork unitOfWork)
         {
-            _contractRepository = contractRepository;
+            _projectRepository = projectRepository;
             _unitOfWork = unitOfWork;
         }
 
         public async Task<Unit> Handle(DeleteProjectCommand request, CancellationToken cancellationToken)
         {
-            var contract = await _contractRepository.GetByIdAsync(request.ContractId, cancellationToken);
+            var project = await _projectRepository.GetByIdAsync(request.ProjectId, cancellationToken);
 
-            if (contract is null)
+            if (project is null)
             {
-                throw new EntityNotFoundException(request.ContractId);
+                throw new EntityNotFoundException(request.ProjectId);
             }
 
-            _contractRepository.Remove(contract);
+            _projectRepository.Remove(project);
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 

@@ -3,5 +3,5 @@ using MediatR;
 
 namespace Business.CQRS.ContractUnit.Commands.DeleteContract
 {
-    public sealed record DeleteContractCommand(Guid ContractId) : ICommand<Unit>;
+    public sealed record DeleteProjectCommand(Guid ContractId) : ICommand<Unit>;
 }

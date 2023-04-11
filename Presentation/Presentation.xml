@@ -157,11 +157,56 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>No content.</returns>
         </member>
+        <member name="T:Presentation.Controllers.ProjectController">
+            <summary>
+            The users controller.
+            </summary>
+        </member>
         <member name="M:Presentation.Controllers.ProjectController.#ctor(MediatR.ISender)">
             <summary>
-            Initializes a new instance of the <see cref="T:Presentation.Controllers.ContractController"/> class.
+            Initializes a new instance of the <see cref="T:Presentation.Controllers.ProjectController"/> class.
             </summary>
             <param name="sender"></param>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectController.Get(System.Threading.CancellationToken)">
+            <summary>
+            Gets all of the projects.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of project.</returns>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectController.GetById(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the project with the specified identifier, if it exists.
+            </summary>
+            <param name="projectId">The project identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The project with the specified identifier, if it exists.</returns>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectController.Create(Business.CQRS.ProjectUnit.Commands.CreateProject.CreateProjectRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new project based on the specified request.
+            </summary>
+            <param name="request">The create project request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The newly created project.</returns>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectController.Update(System.Guid,Business.CQRS.ProjectUnit.Commands.UpdateProject.UpdateProjectRequest,System.Threading.CancellationToken)">
+            <summary>
+            Updates the project with the specified identifier based on the specified request, if it exists.
+            </summary>
+            <param name="projectId">The project identifier.</param>
+            <param name="request">The update project request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectController.Delete(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Delete the project with the specified identifier based on the specified request, if it exists.
+            </summary>
+            <param name="projectId">The project identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content.</returns>
         </member>
         <member name="M:Presentation.Controllers.ProjectTaskController.#ctor(MediatR.ISender)">
             <summary>

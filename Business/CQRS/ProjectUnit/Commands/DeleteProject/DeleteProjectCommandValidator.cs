@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 
-namespace Business.CQRS.ContractUnit.Commands.DeleteContract
+namespace Business.CQRS.ProjectUnit.Commands.DeleteProject
 {
     public sealed class DeleteProjectCommandValidator : AbstractValidator<DeleteProjectCommand>
     {
         public DeleteProjectCommandValidator()
         {
-            RuleFor(x => x.ContractId).NotEmpty();
+            RuleFor(x => x.ProjectId).NotEmpty();
         }
     }
 }
