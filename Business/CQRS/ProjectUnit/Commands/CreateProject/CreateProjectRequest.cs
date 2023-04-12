@@ -6,6 +6,6 @@
         string ProjectDescription,
         string ProjectStatus,
         string ProjectTimeSpent,
-        string ProjectFinishData
+        DateTime ProjectFinishData
         );
 }

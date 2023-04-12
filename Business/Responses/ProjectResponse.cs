@@ -13,7 +13,7 @@ namespace Business.Responses
         string ProjectDescription,
         string ProjectStatus,
         string ProjectTimeSpent,
-        string ProjectFinishData,
+        DateTime ProjectFinishData,
         string CreatedBy,
         DateTime CreatedOn,
         string UpdatedBy,
