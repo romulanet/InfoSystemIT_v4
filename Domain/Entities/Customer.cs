@@ -5,7 +5,7 @@ namespace Domain.Entities
 {
     public sealed class Customer : CreateUpdateInfo
     {
-        public Customer(string firstName, string midname, string lastName,string companyTitle,string country,string telNumber,string mailAdress,string postAddress)
+        public Customer(string firstName, string midname, string lastName, string companyTitle, string country, string telNumber, string mailAdress, string postAddress)
             : this()
         {
             CustomerFName = firstName;
@@ -35,7 +35,7 @@ namespace Domain.Entities
         //Навигационные свойства
         public ICollection<Contract>? Contracts { get; set; }
 
-        public void Update(string firstName,string middlename, string lastName, string companyTitle, string country,string telnumber,string mailAdress, string postAdress)
+        public void Update(string firstName, string middlename, string lastName, string companyTitle, string country, string telnumber, string mailAdress, string postAdress)
             => (CustomerFName, CustomerMName, CustomerLName, CustomerCompanyTitle, CustomerCountry, CustomerTelNumber, CustomerMailAddress, CustomerPostAddress)
             = (firstName, middlename, lastName, companyTitle, country, telnumber, mailAdress, postAdress);
 

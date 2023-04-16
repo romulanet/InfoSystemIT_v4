@@ -9,7 +9,7 @@ namespace Business.CQRS.CustomerUnit.Queries.GetCustomer
     {
         private readonly ICustomerRepository _customerRepository;
 
-        public GetCustomerQueryHandler(ICustomerRepository userRepository) => _customerRepository = userRepository;
+        public GetCustomerQueryHandler(ICustomerRepository customerRepository) => _customerRepository = customerRepository;
 
         public async Task<List<CustomerResponse>> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
         {

@@ -10,18 +10,18 @@ namespace Business.CQRS.TeamUnit.Queries.GetTeamById
     {
         private readonly ITeamRepository _userRepository;
 
-        public GetTeamByIdQueryHandler(ITeamRepository userRepository) => _userRepository = userRepository;
+        public GetTeamByIdQueryHandler(ITeamRepository teamRepository) => _userRepository = teamRepository;
 
         public async Task<TeamResponse> Handle(GetTeamByIdQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.TaskId, cancellationToken);
+            var team = await _userRepository.GetByIdAsync(request.TaskId, cancellationToken);
 
-            if (user is null)
+            if (team is null)
             {
                 throw new EntityNotFoundException(request.TaskId);
             }
 
-            return user.Adapt<TeamResponse>();
+            return team.Adapt<TeamResponse>();
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using Business.Exceptions;
-using MediatR;
+﻿using Business.Abstractions.Messages;
 using Business.Common.Constants;
+using Business.Exceptions;
 using Domain.IRepositories;
-using Business.Abstractions.Messages;
+using MediatR;
 
 namespace Business.CQRS.EmployeeUnit.Commands.UpdateEmployee
 {
@@ -29,7 +29,7 @@ namespace Business.CQRS.EmployeeUnit.Commands.UpdateEmployee
             employee.UpdatedBy = Constants.UserName.System;
             employee.UpdatedOn = DateTime.Now;
             employee.Update(
-                request.EmployeeFName, 
+                request.EmployeeFName,
                 request.EmployeeMName,
                 request.EmployeeLName,
                 request.EmployeeJobTitle,

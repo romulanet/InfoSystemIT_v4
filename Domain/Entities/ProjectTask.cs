@@ -34,7 +34,7 @@ namespace Domain.Entities
 
         public void Update(string title, string description, DateTime finishData, string status, string timeSpent)
           => (TaskTitle, TaskDescription, TaskFinishData, TaskStatus, TaskTimeSpent)
-          = ( title,  description,  finishData,  status,  timeSpent);
+          = (title, description, finishData, status, timeSpent);
 
     }
 }

@@ -6,7 +6,7 @@ namespace Domain.Entities
     public class Employee : CreateUpdateInfo
     {
 
-        public Employee(string firstName, string midname, string lastName, string jobTitle,string telNumber, string mailAdress, string postAddress)
+        public Employee(string firstName, string midname, string lastName, string jobTitle, string telNumber, string mailAdress, string postAddress)
            : this()
         {
             EmployeeFName = firstName;

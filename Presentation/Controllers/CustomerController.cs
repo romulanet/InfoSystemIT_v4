@@ -1,5 +1,4 @@
-﻿using Business.Common.Constants;
-using Business.CQRS.CustomerUnit.Commands.CreateCustomer;
+﻿using Business.CQRS.CustomerUnit.Commands.CreateCustomer;
 using Business.CQRS.CustomerUnit.Commands.DeleteCustomer;
 using Business.CQRS.CustomerUnit.Commands.UpdateCustomer;
 using Business.CQRS.CustomerUnit.Queries.GetCustomer;

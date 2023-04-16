@@ -1,10 +1,7 @@
-﻿using Domain.Entities;
+﻿using Business.Common.Constants;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using Business.Common.Constants;
-using System.Runtime.ConstrainedExecution;
-using System.Data;
 
 namespace Persistence.EntityTypeConfigurations
 {

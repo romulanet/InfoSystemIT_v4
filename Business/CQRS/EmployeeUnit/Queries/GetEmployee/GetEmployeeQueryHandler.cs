@@ -9,13 +9,13 @@ namespace Business.CQRS.EmployeeUnit.Queries.GetEmployee
     {
         private readonly IEmployeeRepository _employeeRepository;
 
-        public GetEmployeeQueryHandler(IEmployeeRepository userRepository) => _employeeRepository = userRepository;
+        public GetEmployeeQueryHandler(IEmployeeRepository employeeRepository) => _employeeRepository = employeeRepository;
 
         public async Task<List<EmployeeResponse>> Handle(GetEmployeeQuery request, CancellationToken cancellationToken)
         {
-            var customer = await _employeeRepository.GetAsync(cancellationToken);
+            var employee = await _employeeRepository.GetAsync(cancellationToken);
 
-            return customer.Adapt<List<EmployeeResponse>>();
+            return employee.Adapt<List<EmployeeResponse>>();
         }
     }
 }

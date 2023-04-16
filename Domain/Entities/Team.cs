@@ -27,7 +27,7 @@ namespace Domain.Entities
 
         public void Update(string title, string description)
            => (TeamTitle, TeamDescription)
-           = ( title,  description);
+           = (title, description);
 
     }
 }

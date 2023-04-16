@@ -6,7 +6,6 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
@@ -145,7 +144,7 @@ namespace WebAPI
                     Log.Fatal(exception, "An error occurred while app initialization");
                 }
             }
-            
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -9,7 +9,7 @@ namespace Business.CQRS.TeamUnit.Queries.GetTeam
     {
         private readonly ITeamRepository _teamRepository;
 
-        public GetTeamQueryHandler(ITeamRepository userRepository) => _teamRepository = userRepository;
+        public GetTeamQueryHandler(ITeamRepository teamRepository) => _teamRepository = teamRepository;
 
         public async Task<List<TeamResponse>> Handle(GetTeamQuery request, CancellationToken cancellationToken)
         {

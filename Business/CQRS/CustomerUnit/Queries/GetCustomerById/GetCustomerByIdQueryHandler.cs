@@ -8,20 +8,20 @@ namespace Business.CQRS.CustomerUnit.Queries.GetCustomerById
 {
     internal sealed class GetCustomerByIdQueryHandler : IQueryHandler<GetCustomerByIdQuery, CustomerResponse>
     {
-        private readonly ICustomerRepository _userRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public GetCustomerByIdQueryHandler(ICustomerRepository userRepository) => _userRepository = userRepository;
+        public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository) => _customerRepository = customerRepository;
 
         public async Task<CustomerResponse> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.CustomerId, cancellationToken);
+            var customer = await _customerRepository.GetByIdAsync(request.CustomerId, cancellationToken);
 
-            if (user is null)
+            if (customer is null)
             {
                 throw new EntityNotFoundException(request.CustomerId);
             }
 
-            return user.Adapt<CustomerResponse>();
+            return customer.Adapt<CustomerResponse>();
         }
     }
 }

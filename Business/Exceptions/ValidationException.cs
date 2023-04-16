@@ -1,6 +1,4 @@
-﻿using ApplicationException = Business.Exceptions.ApplicationException;
-
-namespace Business.Exceptions
+﻿namespace Business.Exceptions
 {
     public sealed class ValidationException : ApplicationException
     {

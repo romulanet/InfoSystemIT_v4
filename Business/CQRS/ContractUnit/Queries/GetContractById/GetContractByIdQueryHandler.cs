@@ -8,20 +8,20 @@ namespace Business.CQRS.ContractUnit.Queries.GetContractById
 {
     internal sealed class GetContractByIdQueryHandler : IQueryHandler<GetContractByIdQuery, ContractResponse>
     {
-        private readonly IContractRepository _userRepository;
+        private readonly IContractRepository _contractRepository;
 
-        public GetContractByIdQueryHandler(IContractRepository userRepository) => _userRepository = userRepository;
+        public GetContractByIdQueryHandler(IContractRepository contractRepository) => _contractRepository = contractRepository;
 
         public async Task<ContractResponse> Handle(GetContractByIdQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.ContractId, cancellationToken);
+            var contract = await _contractRepository.GetByIdAsync(request.ContractId, cancellationToken);
 
-            if (user is null)
+            if (contract is null)
             {
                 throw new EntityNotFoundException(request.ContractId);
             }
 
-            return user.Adapt<ContractResponse>();
+            return contract.Adapt<ContractResponse>();
         }
     }
 }

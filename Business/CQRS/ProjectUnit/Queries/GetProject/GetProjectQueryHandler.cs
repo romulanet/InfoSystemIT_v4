@@ -9,7 +9,7 @@ namespace Business.CQRS.ProjectUnit.Queries.GetProject
     {
         private readonly IProjectRepository _projectRepository;
 
-        public GetProjectQueryHandler(IProjectRepository userRepository) => _projectRepository = userRepository;
+        public GetProjectQueryHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<List<ProjectResponse>> Handle(GetProjectQuery request, CancellationToken cancellationToken)
         {

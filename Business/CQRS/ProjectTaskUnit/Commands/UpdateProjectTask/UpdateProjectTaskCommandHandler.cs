@@ -1,9 +1,8 @@
-﻿using Business.Exceptions;
-using MediatR;
+﻿using Business.Abstractions.Messages;
 using Business.Common.Constants;
+using Business.Exceptions;
 using Domain.IRepositories;
-using Business.Abstractions.Messages;
-using static Business.Common.Constants.Constants;
+using MediatR;
 
 namespace Business.CQRS.ProjectTaskUnit.Commands.UpdateProjectTask
 {

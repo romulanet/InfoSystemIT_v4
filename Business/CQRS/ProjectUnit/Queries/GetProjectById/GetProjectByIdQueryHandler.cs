@@ -8,20 +8,20 @@ namespace Business.CQRS.ProjectUnit.Queries.GetProjectById
 {
     internal sealed class GetProjectByIdQueryHandler : IQueryHandler<GetProjectByIdQuery, ProjectResponse>
     {
-        private readonly IProjectRepository _userRepository;
+        private readonly IProjectRepository _projectRepository;
 
-        public GetProjectByIdQueryHandler(IProjectRepository userRepository) => _userRepository = userRepository;
+        public GetProjectByIdQueryHandler(IProjectRepository projectRepository) => _projectRepository = projectRepository;
 
         public async Task<ProjectResponse> Handle(GetProjectByIdQuery request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByIdAsync(request.ProjectId, cancellationToken);
+            var project = await _projectRepository.GetByIdAsync(request.ProjectId, cancellationToken);
 
-            if (user is null)
+            if (project is null)
             {
                 throw new EntityNotFoundException(request.ProjectId);
             }
 
-            return user.Adapt<ProjectResponse>();
+            return project.Adapt<ProjectResponse>();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Business.CQRS.ContractUnit.Queries.GetContract
     {
         private readonly IContractRepository _contractRepository;
 
-        public GetContractQueryHandler(IContractRepository userRepository) => _contractRepository = userRepository;
+        public GetContractQueryHandler(IContractRepository contractRepository) => _contractRepository = contractRepository;
 
         public async Task<List<ContractResponse>> Handle(GetContractQuery request, CancellationToken cancellationToken)
         {

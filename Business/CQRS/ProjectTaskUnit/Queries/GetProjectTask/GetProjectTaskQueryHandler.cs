@@ -9,13 +9,13 @@ namespace Business.CQRS.ProjectTaskUnit.Queries.GetProjectTask
     {
         private readonly IProjectTaskRepository _projectTaskRepository;
 
-        public GetProjectTaskQueryHandler(IProjectTaskRepository userRepository) => _projectTaskRepository = userRepository;
+        public GetProjectTaskQueryHandler(IProjectTaskRepository projectTaskRepository) => _projectTaskRepository = projectTaskRepository;
 
         public async Task<List<ProjectTaskResponse>> Handle(GetProjectTaskQuery request, CancellationToken cancellationToken)
         {
-            var project = await _projectTaskRepository.GetAsync(cancellationToken);
+            var projectTask = await _projectTaskRepository.GetAsync(cancellationToken);
 
-            return project.Adapt<List<ProjectTaskResponse>>();
+            return projectTask.Adapt<List<ProjectTaskResponse>>();
         }
     }
 }

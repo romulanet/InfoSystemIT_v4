@@ -1,8 +1,8 @@
-﻿using Business.Exceptions;
-using MediatR;
+﻿using Business.Abstractions.Messages;
 using Business.Common.Constants;
+using Business.Exceptions;
 using Domain.IRepositories;
-using Business.Abstractions.Messages;
+using MediatR;
 
 namespace Business.CQRS.ContractUnit.Commands.UpdateContract
 {

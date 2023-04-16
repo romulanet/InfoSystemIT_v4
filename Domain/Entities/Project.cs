@@ -5,7 +5,7 @@ namespace Domain.Entities
 {
     public class Project : CreateUpdateInfo
     {
-        public Project(string title, string description,string type, string status,string timeSpent, DateTime finishData)
+        public Project(string title, string description, string type, string status, string timeSpent, DateTime finishData)
           : this()
         {
             ProjectTitle = title;
@@ -35,9 +35,9 @@ namespace Domain.Entities
         public Team? Team { get; set; }
         public ICollection<ProjectTask>? ProjectTasks { get; set; }
 
-        public void Update(string title, string type, string description,  string status, string timeSpent, DateTime finishData)
+        public void Update(string title, string type, string description, string status, string timeSpent, DateTime finishData)
          => (ProjectTitle, ProjectType, ProjectDescription, ProjectStatus, ProjectTimeSpent, ProjectFinishData)
-         = (title, type, description, status,  timeSpent, finishData);
+         = (title, type, description, status, timeSpent, finishData);
 
     }
 }

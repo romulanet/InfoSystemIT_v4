@@ -1,8 +1,8 @@
-﻿using Business.Exceptions;
-using MediatR;
+﻿using Business.Abstractions.Messages;
 using Business.Common.Constants;
+using Business.Exceptions;
 using Domain.IRepositories;
-using Business.Abstractions.Messages;
+using MediatR;
 
 namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
 {
@@ -29,7 +29,7 @@ namespace Business.CQRS.CustomerUnit.Commands.UpdateCustomer
             customer.UpdatedBy = Constants.UserName.System;
             customer.UpdatedOn = DateTime.Now;
             customer.Update(
-                request.CustomerFName, 
+                request.CustomerFName,
                 request.CustomerMName,
                 request.CustomerLName,
                 request.CustomerCompanyTitle,

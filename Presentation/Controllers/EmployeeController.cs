@@ -1,20 +1,18 @@
 ﻿using Business.CQRS.EmployeeUnit.Commands.CreateEmployee;
-using Business.CQRS.EmployeeUnit.Queries.GetEmployeeById;
-using Business.CQRS.EmployeeUnit.Queries.GetEmployee;
-using Business.CQRS.EmployeeUnit.Commands.UpdateEmployee;
 using Business.CQRS.EmployeeUnit.Commands.DeleteEmployee;
+using Business.CQRS.EmployeeUnit.Commands.UpdateEmployee;
+using Business.CQRS.EmployeeUnit.Queries.GetEmployee;
+using Business.CQRS.EmployeeUnit.Queries.GetEmployeeById;
+using Business.Responses;
+using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Mapster;
-using Business.Responses;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Presentation.Controllers
 {    /// <summary>

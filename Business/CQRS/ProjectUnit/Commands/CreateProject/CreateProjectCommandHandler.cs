@@ -4,7 +4,6 @@ using Business.Responses;
 using Domain.Entities;
 using Domain.IRepositories;
 using Mapster;
-using static Business.Common.Constants.Constants;
 
 namespace Business.CQRS.ProjectUnit.Commands.CreateProject
 {
