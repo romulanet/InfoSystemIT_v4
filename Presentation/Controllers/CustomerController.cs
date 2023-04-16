@@ -7,6 +7,7 @@ using Business.CQRS.CustomerUnit.Queries.GetCustomerById;
 using Business.Responses;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,6 +20,7 @@ namespace Presentation.Controllers
     /// <summary>
     /// The users controller.
     /// </summary>
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public sealed class CustomerController : ControllerBase
@@ -40,12 +42,12 @@ namespace Presentation.Controllers
         [ProducesResponseType(typeof(List<CustomerResponse>), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get(CancellationToken cancellationToken)
         {
+            //var claims = User.Claims; 
 
             var query = new GetCustomerQuery();
-
             var customer = await _sender.Send(query, cancellationToken);
-
             return Ok(customer);
+
         }
 
         /// <summary>

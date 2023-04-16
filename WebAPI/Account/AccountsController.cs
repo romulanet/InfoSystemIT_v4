@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using WebAPI.JwtFeatures;
 
-namespace webapi.Controllers
+namespace WebAPI.Account
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -13,12 +13,14 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Business.Responses;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Presentation.Controllers
 {
     /// <summary>
     /// The users controller.
     /// </summary>
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public sealed class ContractController : ControllerBase

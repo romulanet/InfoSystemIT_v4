@@ -28,6 +28,7 @@ namespace Persistence
             builder.ApplyConfiguration(new ProjectTaskConfiguration());
             builder.ApplyConfiguration(new TeamConfiguration());
             builder.ApplyConfiguration(new EmployeeConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
 
             base.OnModelCreating(builder);
         }

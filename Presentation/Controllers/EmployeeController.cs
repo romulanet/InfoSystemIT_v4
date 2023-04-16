@@ -14,11 +14,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Mapster;
 using Business.Responses;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Presentation.Controllers
 {    /// <summary>
      /// The users controller.
      /// </summary>
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public sealed class EmployeeController : ControllerBase
