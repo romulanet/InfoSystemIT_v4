@@ -34,8 +34,7 @@ namespace Persistence
         }
     }
     // For Migration
-    // For MS SQL - Add-Migration <Migration Name> -Project Persistence -StartupProject WebAPI
-    // For My SQL - Add-Migration <Migration Name> -Project ITCIS.Persistence -StartupProject ITCIS.WebApi
+    // For My SQL - Add-Migration addCustomerInContract -Project Persistence -StartupProject WebAPI
     // For Update
-    // update-database Init -Project ITCIS.Persistence -StartupProject ITCIS.WebApi
+    // For My SQL - Update-database Init -Project ITCIS.Persistence -StartupProject ITCIS.WebApi
 }

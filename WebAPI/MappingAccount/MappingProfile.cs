@@ -2,7 +2,7 @@
 using Business.AuthDTO;
 using Domain.Entities;
 
-namespace WebApi.Mapping
+namespace WebAPI.MappingAccount
 {
     public class MappingProfile : Profile
     {
