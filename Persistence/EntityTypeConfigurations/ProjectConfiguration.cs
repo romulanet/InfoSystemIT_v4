@@ -22,12 +22,13 @@ namespace Persistence.EntityTypeConfigurations
                   UpdatedOn = DateTime.UtcNow,
                   UpdatedBy = Constants.UserName.System,
                   Id = new Guid("1E9C86B9-5976-4713-8C01-1601B74E9D37"),
-                  ProjectTitle = "Разработка ПО для компании ECOTech",
+                  ProjectTitle = "Разработка ПО для компании ECOLine",
                   ProjectType = "Разработка ПО",
                   ProjectDescription = "Разработка ПО, Разработка и развёртывание",
                   ProjectStatus = Constants.ProjectStatus.InProcess,
                   ProjectTimeSpent = "300 ч",
-                  ProjectFinishData = DateTime.Today.AddDays(120)
+                  ProjectFinishData = DateTime.Today.AddDays(120),
+                  
               },
               new Project
               {

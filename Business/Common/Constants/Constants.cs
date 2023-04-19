@@ -23,6 +23,12 @@
             public const string Integration = "Integration";
             public const string ServiceSupport = "ServiceSupport";
         }
+        public static class ProjectTaskStatus
+        {
+            public const string InProcess = "InProcess";
+            public const string Stopped = "Stopped";
+            public const string Finished = "Finished";
+        }
 
         public static class UserName
         {

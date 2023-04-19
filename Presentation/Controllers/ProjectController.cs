@@ -3,6 +3,7 @@ using Business.CQRS.ProjectUnit.Commands.DeleteProject;
 using Business.CQRS.ProjectUnit.Commands.UpdateProject;
 using Business.CQRS.ProjectUnit.Queries.GetProject;
 using Business.CQRS.ProjectUnit.Queries.GetProjectById;
+using Business.CQRS.ProjectUnit.Queries.GetProjectByIdIncludeTask;
 using Business.Responses;
 using Mapster;
 using MediatR;
@@ -59,6 +60,24 @@ namespace Presentation.Controllers
         public async Task<IActionResult> GetById(Guid projectId, CancellationToken cancellationToken)
         {
             var query = new GetProjectByIdQuery(projectId);
+
+            var project = await _sender.Send(query, cancellationToken);
+
+            return Ok(project);
+        }
+
+        /// <summary>
+        /// Gets the project with the specified identifier include tasks, if it exists.
+        /// </summary>
+        /// <param name="projectId">The project identifier.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The project with the specified identifier, if it exists.</returns>
+        [HttpGet("{projectId:guid}/ProjectTask")]
+        [ProducesResponseType(typeof(ProjectResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetByIdIncludeTask(Guid projectId, CancellationToken cancellationToken)
+        {
+            var query = new GetProjectByIdIncludeTaskQuery(projectId);
 
             var project = await _sender.Send(query, cancellationToken);
 

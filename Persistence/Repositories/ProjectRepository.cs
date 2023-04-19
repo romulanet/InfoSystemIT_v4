@@ -16,6 +16,11 @@ namespace Persistence.Repositories
         public Task<Project> GetByIdAsync(Guid projectId, CancellationToken cancellationToken = default) =>
             _dbContext.Projects.FirstOrDefaultAsync(project => project.Id == projectId, cancellationToken);
 
+        public Task<Project> GetByIdWithTaskAsync(Guid projectId, CancellationToken cancellationToken = default) =>
+            _dbContext.Projects.Where(project => project.Id == projectId)
+            .Include(ts=>ts.ProjectTasks)
+            .FirstOrDefaultAsync();
+
         public void Insert(Project project) => _dbContext.Projects.Add(project);
 
         public void Remove(Project project) => _dbContext.Projects.Remove(project);

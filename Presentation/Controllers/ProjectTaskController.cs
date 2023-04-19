@@ -3,6 +3,7 @@ using Business.CQRS.ProjectTaskUnit.Commands.DeleteProjectTask;
 using Business.CQRS.ProjectTaskUnit.Commands.UpdateProjectTask;
 using Business.CQRS.ProjectTaskUnit.Queries.GetProjectTask;
 using Business.CQRS.ProjectTaskUnit.Queries.GetProjectTaskById;
+using Business.CQRS.ProjectTaskUnit.Queries.GetProjectTaskActive;
 using Business.Responses;
 using Mapster;
 using MediatR;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -42,6 +44,23 @@ namespace Presentation.Controllers
         {
 
             var query = new GetProjectTaskQuery();
+
+            var prjectTask = await _sender.Send(query, cancellationToken);
+
+            return Ok(prjectTask);
+        }
+
+        /// <summary>
+        /// Get all active prjectTasks.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The collection of prjectTask.</returns>
+        [HttpGet("active")]
+        [ProducesResponseType(typeof(List<ProjectTaskResponse>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetActive(CancellationToken cancellationToken)
+        {
+
+            var query = new GetProjectTaskActiveQuery();
 
             var prjectTask = await _sender.Send(query, cancellationToken);
 
@@ -103,6 +122,28 @@ namespace Presentation.Controllers
                 TaskFinishData = request.TaskFinishData,
                 TaskStatus = request.TaskStatus,
                 TaskTimeSpent = request.TaskTimeSpent,
+            };
+
+            await _sender.Send(command, cancellationToken);
+
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Update status the prjectTask with the specified identifier based on the specified request, if it exists.
+        /// </summary>
+        /// <param name="prjectTaskId">The prjectTask identifier.</param>
+        /// <param name="request">The update prjectTask request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>No content.</returns>
+        [HttpPut("updateStatus/{prjectTaskId:guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> UpdateStatus(Guid prjectTaskId, [FromBody] UpdateProjectTaskRequest request, CancellationToken cancellationToken)
+        {
+            var command = request.Adapt<UpdateProjectTaskCommand>() with
+            {
+                TaskStatus = request.TaskStatus,
             };
 
             await _sender.Send(command, cancellationToken);

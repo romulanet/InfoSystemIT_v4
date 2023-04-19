@@ -183,6 +183,14 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>The project with the specified identifier, if it exists.</returns>
         </member>
+        <member name="M:Presentation.Controllers.ProjectController.GetByIdIncludeTask(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the project with the specified identifier include tasks, if it exists.
+            </summary>
+            <param name="projectId">The project identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The project with the specified identifier, if it exists.</returns>
+        </member>
         <member name="M:Presentation.Controllers.ProjectController.Create(Business.CQRS.ProjectUnit.Commands.CreateProject.CreateProjectRequest,System.Threading.CancellationToken)">
             <summary>
             Creates a new project based on the specified request.
@@ -226,6 +234,13 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>The collection of prjectTask.</returns>
         </member>
+        <member name="M:Presentation.Controllers.ProjectTaskController.GetActive(System.Threading.CancellationToken)">
+            <summary>
+            Get all active prjectTasks.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The collection of prjectTask.</returns>
+        </member>
         <member name="M:Presentation.Controllers.ProjectTaskController.GetById(System.Guid,System.Threading.CancellationToken)">
             <summary>
             Gets the prjectTask with the specified identifier, if it exists.
@@ -245,6 +260,15 @@
         <member name="M:Presentation.Controllers.ProjectTaskController.Update(System.Guid,Business.CQRS.ProjectTaskUnit.Commands.UpdateProjectTask.UpdateProjectTaskRequest,System.Threading.CancellationToken)">
             <summary>
             Updates the prjectTask with the specified identifier based on the specified request, if it exists.
+            </summary>
+            <param name="prjectTaskId">The prjectTask identifier.</param>
+            <param name="request">The update prjectTask request.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>No content.</returns>
+        </member>
+        <member name="M:Presentation.Controllers.ProjectTaskController.UpdateStatus(System.Guid,Business.CQRS.ProjectTaskUnit.Commands.UpdateProjectTask.UpdateProjectTaskRequest,System.Threading.CancellationToken)">
+            <summary>
+            Update status the prjectTask with the specified identifier based on the specified request, if it exists.
             </summary>
             <param name="prjectTaskId">The prjectTask identifier.</param>
             <param name="request">The update prjectTask request.</param>

@@ -6,7 +6,9 @@ namespace Domain.IRepositories
     {
         Task<List<Project>> GetAsync(CancellationToken cancellationToken = default);
 
-        Task<Project> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default);
+        Task<Project> GetByIdAsync(Guid projectId, CancellationToken cancellationToken = default);
+
+        Task<Project> GetByIdWithTaskAsync(Guid projectId, CancellationToken cancellationToken = default);
 
         void Insert(Project project);
 

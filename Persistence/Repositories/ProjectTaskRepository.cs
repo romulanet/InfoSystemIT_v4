@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Business.Common.Constants;
+using Domain.Entities;
 using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,9 @@ namespace Persistence.Repositories
 
         public Task<List<ProjectTask>> GetAsync(CancellationToken cancellationToken = default) =>
             _dbContext.ProjectTasks.ToListAsync(cancellationToken);
+
+        public Task<List<ProjectTask>> GetAsyncActive(CancellationToken cancellationToken = default) =>
+            _dbContext.ProjectTasks.Where(x=>x.TaskStatus == Constants.ProjectTaskStatus.Stopped).ToListAsync(cancellationToken);
 
         public Task<ProjectTask> GetByIdAsync(Guid projectTaskId, CancellationToken cancellationToken = default) =>
             _dbContext.ProjectTasks.FirstOrDefaultAsync(projectTask => projectTask.Id == projectTaskId, cancellationToken);

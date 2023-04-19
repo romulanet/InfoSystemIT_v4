@@ -24,14 +24,11 @@ namespace Persistence
             services)
         {
 
-            //services.AddScoped<ICustomerDbContext>(provider =>
-            //    provider.GetService<DataDBContext>());
             return services;
         }
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
         {
-            //services.AddDbContext<DataDBContext>(opts =>
-            //opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+
 
             services.AddDbContext<DataDBContext>(options =>
             options.UseMySql(configuration.GetConnectionString("DbConnection"),
