@@ -25,6 +25,7 @@ namespace Persistence.EntityTypeConfigurations
                    ContractTitle = "Разработка ПО",
                    ContractDescription = "Разработка ПО для клиента",
                    ContractTotalCost = "40 млн. руб",
+                   CustomerId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870")
                },
                new Contract
                {
@@ -36,6 +37,7 @@ namespace Persistence.EntityTypeConfigurations
                    ContractTitle = "Обновление ПО",
                    ContractDescription = "Обновление ПО для клиента",
                    ContractTotalCost = "20 млн. руб",
+                   CustomerId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3")
                }
            );
         }

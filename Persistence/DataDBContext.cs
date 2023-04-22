@@ -36,5 +36,5 @@ namespace Persistence
     // For Migration
     // For My SQL - Add-Migration <Name> -Project Persistence -StartupProject WebAPI
     // For Update
-    // For My SQL - Update-database Init -Project ITCIS.Persistence -StartupProject ITCIS.WebApi
+    // For My SQL - Update-database 
 }

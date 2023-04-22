@@ -6,11 +6,11 @@ using Mapster;
 
 namespace Business.CQRS.CustomerUnit.Queries.GetCustomerById
 {
-    internal sealed class GetCustomerByIdQueryHandler : IQueryHandler<GetCustomerByIdQuery, CustomerResponse>
+    internal sealed class GetCustomerByIdHandler : IQueryHandler<GetCustomerByIdQuery, CustomerResponse>
     {
         private readonly ICustomerRepository _customerRepository;
 
-        public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository) => _customerRepository = customerRepository;
+        public GetCustomerByIdHandler(ICustomerRepository customerRepository) => _customerRepository = customerRepository;
 
         public async Task<CustomerResponse> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
         {

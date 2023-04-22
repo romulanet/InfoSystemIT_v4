@@ -39,7 +39,6 @@ namespace WebAPI
             builder.Services.ConfigureCors();
             builder.Services.ConfigureIISIntegration();
             builder.Services.ConfigureSqlContext(builder.Configuration);
-            //builder.Services.ConfigureRepositoryManager();
             builder.Services.AddAutoMapper(typeof(Program));
 
             builder.Services.AddIdentity<User, IdentityRole>(opt =>
@@ -174,6 +173,9 @@ namespace WebAPI
             });
 
             app.UseCors("CorsPolicy");
+            //  app.UseCors(
+            //    options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials()
+            //);
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

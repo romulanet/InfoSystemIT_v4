@@ -81,6 +81,14 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>The customer with the specified identifier, if it exists.</returns>
         </member>
+        <member name="M:Presentation.Controllers.CustomerController.GetByIdIncludeContract(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the customer with the specified identifier incluse contracts, if it exists.
+            </summary>
+            <param name="customerId">The customer identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The customer with the specified identifier, if it exists.</returns>
+        </member>
         <member name="M:Presentation.Controllers.CustomerController.Create(Business.CQRS.CustomerUnit.Commands.CreateCustomer.CreateCustomerRequest,System.Threading.CancellationToken)">
             <summary>
             Creates a new customer based on the specified request.

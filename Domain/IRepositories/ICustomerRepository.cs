@@ -7,6 +7,7 @@ namespace Domain.IRepositories
         Task<List<Customer>> GetAsync(CancellationToken cancellationToken = default);
 
         Task<Customer> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default);
+        Task<Customer> GetByIdWithContractAsync(Guid userId, CancellationToken cancellationToken = default);
 
         void Insert(Customer customer);
 
