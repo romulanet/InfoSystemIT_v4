@@ -17,10 +17,8 @@ namespace Domain.Entities
         }
         [Key]
         public Guid Id { get; set; }
-        public string TeamTitle { get; set; }
-        public string? TeamDescription { get; set; }
-
-        public int? EmployeeId { get; set; }
+        public string TeamTitle { get; set; } = string.Empty;
+        public string TeamDescription { get; set; }= string.Empty;  
 
         public ICollection<Project>? Projects { get; set; }
         public ICollection<Employee>? Employees { get; set; }

@@ -18,9 +18,9 @@ namespace Domain.Entities
         }
         [Key]
         public Guid Id { get; set; }
-        public string? ContractTitle { get; set; }
-        public string? ContractDescription { get; set; }
-        public string? ContractTotalCost { get; set; }
+        public string ContractTitle { get; set; } = string.Empty;
+        public string ContractDescription { get; set; } = string.Empty;
+        public string ContractTotalCost { get; set; } = string.Empty;
 
         //Навигационные свойства
         public Guid? CustomerId { get; set; }

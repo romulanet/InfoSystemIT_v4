@@ -16,6 +16,11 @@ namespace Persistence.Repositories
         public Task<Contract> GetByIdAsync(Guid contractId, CancellationToken cancellationToken = default) =>
             _dbContext.Contracts.FirstOrDefaultAsync(contract => contract.Id == contractId, cancellationToken);
 
+        public Task<Contract> GetByIdWithContractAsync(Guid contractId, CancellationToken cancellationToken = default) =>
+            _dbContext.Contracts.Where(contract => contract.Id == contractId)
+            .Include(ts => ts.Projects)
+            .FirstOrDefaultAsync();
+
         public void Insert(Contract contract) => _dbContext.Contracts.Add(contract);
 
         public void Remove(Contract contract) => _dbContext.Contracts.Remove(contract);

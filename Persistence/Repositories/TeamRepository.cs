@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Contracts;
 
 namespace Persistence.Repositories
 {
@@ -15,6 +16,11 @@ namespace Persistence.Repositories
 
         public Task<Team> GetByIdAsync(Guid teamId, CancellationToken cancellationToken = default) =>
             _dbContext.Teams.FirstOrDefaultAsync(team => team.Id == teamId, cancellationToken);
+
+        public Task<Team> GetByIdIncludeProjectAsync(Guid teamId, CancellationToken cancellationToken = default) =>
+             _dbContext.Teams.Where(team => team.Id == teamId)
+            .Include(ts => ts.Projects)
+            .FirstOrDefaultAsync();
 
         public void Insert(Team team) => _dbContext.Teams.Add(team);
 

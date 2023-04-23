@@ -22,13 +22,13 @@ namespace Domain.Entities
         }
         [Key]
         public Guid Id { get; set; }
-        public string? EmployeeFName { get; set; }
-        public string? EmployeeMName { get; set; }
-        public string? EmployeeLName { get; set; }
-        public string? EmployeeJobTitle { get; set; }
-        public string? EmployeeTelNumber { get; set; }
-        public string? EmployeeMailAddress { get; set; }
-        public string? EmployeePostAddress { get; set; }
+        public string EmployeeFName { get; set; } = string.Empty;
+        public string EmployeeMName { get; set; } = string.Empty;
+        public string EmployeeLName { get; set; } = string.Empty;
+        public string EmployeeJobTitle { get; set; } = string.Empty;
+        public string EmployeeTelNumber { get; set; } = string.Empty;
+        public string EmployeeMailAddress { get; set; } = string.Empty;
+        public string EmployeePostAddress { get; set; } = string.Empty;
 
         //Навигационные свойства
 

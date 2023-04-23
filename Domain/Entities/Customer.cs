@@ -23,14 +23,14 @@ namespace Domain.Entities
         }
         [Key]
         public Guid Id { get; set; }
-        public string? CustomerFName { get; set; }
-        public string? CustomerMName { get; set; }
-        public string? CustomerLName { get; set; }
-        public string? CustomerCompanyTitle { get; set; }
-        public string? CustomerCountry { get; set; }
-        public string? CustomerTelNumber { get; set; }
-        public string? CustomerMailAddress { get; set; }
-        public string? CustomerPostAddress { get; set; }
+        public string CustomerFName { get; set; } = string.Empty;
+        public string CustomerMName { get; set; } = string.Empty;
+        public string CustomerLName { get; set; } = string.Empty;
+        public string CustomerCompanyTitle { get; set; } = string.Empty;
+        public string CustomerCountry { get; set; } = string.Empty;
+        public string CustomerTelNumber { get; set; } = string.Empty;
+        public string CustomerMailAddress { get; set; } = string.Empty;
+        public string CustomerPostAddress { get; set; } = string.Empty;
 
         //Навигационные свойства
         public ICollection<Contract>? Contracts { get; set; }

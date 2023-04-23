@@ -3,6 +3,7 @@ using Business.CQRS.TeamUnit.Commands.DeleteTeam;
 using Business.CQRS.TeamUnit.Commands.UpdateTeam;
 using Business.CQRS.TeamUnit.Queries.GetTeam;
 using Business.CQRS.TeamUnit.Queries.GetTeamById;
+using Business.CQRS.TeamUnit.Queries.GetTeamByIdIncludeProject;
 using Business.Responses;
 using Mapster;
 using MediatR;
@@ -66,6 +67,24 @@ namespace Presentation.Controllers
         }
 
         /// <summary>
+        /// Gets the team with the specified identifier include project, if it exists.
+        /// </summary>
+        /// <param name="teamId">The team identifier.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The team with the specified identifier, if it exists.</returns>
+        [HttpGet("{teamId:guid}/Project")]
+        [ProducesResponseType(typeof(TeamResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetByIdIncludeProject(Guid teamId, CancellationToken cancellationToken)
+        {
+            var query = new GetTeamByIdIncludeProjectQuery(teamId);
+
+            var team = await _sender.Send(query, cancellationToken);
+
+            return Ok(team);
+        }
+
+        /// <summary>
         /// Creates a new team based on the specified request.
         /// </summary>
         /// <param name="request">The create team request.</param>
@@ -105,6 +124,8 @@ namespace Presentation.Controllers
 
             return NoContent();
         }
+
+
 
         /// <summary>
         /// Delete the team with the specified identifier based on the specified request, if it exists.

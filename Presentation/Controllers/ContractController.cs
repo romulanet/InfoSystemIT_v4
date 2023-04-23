@@ -3,6 +3,7 @@ using Business.CQRS.ContractUnit.Commands.DeleteContract;
 using Business.CQRS.ContractUnit.Commands.UpdateContract;
 using Business.CQRS.ContractUnit.Queries.GetContract;
 using Business.CQRS.ContractUnit.Queries.GetContractById;
+using Business.CQRS.ContractUnit.Queries.GetContractByIdIncludeProject;
 using Business.Responses;
 using Mapster;
 using MediatR;
@@ -61,6 +62,24 @@ namespace Presentation.Controllers
         public async Task<IActionResult> GetById(Guid contractId, CancellationToken cancellationToken)
         {
             var query = new GetContractByIdQuery(contractId);
+
+            var contract = await _sender.Send(query, cancellationToken);
+
+            return Ok(contract);
+        }
+
+        /// <summary>
+        /// Gets the contract with the specified identifier include projects, if it exists.
+        /// </summary>
+        /// <param name="contractId">The contract identifier.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The contract with the specified identifier, if it exists.</returns>
+        [HttpGet("{contractId:guid}/Project")]
+        [ProducesResponseType(typeof(ContractResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetByIdIncludeProject(Guid contractId, CancellationToken cancellationToken)
+        {
+            var query = new GetContractByIdIncludeProjectQuery(contractId);
 
             var contract = await _sender.Send(query, cancellationToken);
 

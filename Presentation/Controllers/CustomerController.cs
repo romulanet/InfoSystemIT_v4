@@ -20,7 +20,7 @@ namespace Presentation.Controllers
     /// <summary>
     /// The users controller.
     /// </summary>
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public sealed class CustomerController : ControllerBase
