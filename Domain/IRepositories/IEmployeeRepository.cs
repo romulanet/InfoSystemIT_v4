@@ -8,6 +8,8 @@ namespace Domain.IRepositories
 
         Task<Employee> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default);
 
+        Task<Employee> GetByIdIncludeTaskAsync(Guid userId, CancellationToken cancellationToken = default);
+
         void Insert(Employee employee);
 
         void Remove(Employee employee);

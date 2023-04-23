@@ -12,6 +12,8 @@
         string CreatedBy,
         DateTime CreatedOn,
         string UpdatedBy,
-        DateTime UpdatedOn
+        DateTime UpdatedOn,
+        IEnumerable<ProjectTaskResponse> ProjectTasks,
+        IEnumerable<EmployeeTeamResponse> Employees_Teams
         );
 }

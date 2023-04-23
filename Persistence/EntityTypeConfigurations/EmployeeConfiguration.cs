@@ -27,8 +27,9 @@ namespace Persistence.EntityTypeConfigurations
                    EmployeeJobTitle = "Програмист",
                    EmployeeTelNumber = "89056673245",
                    EmployeeMailAddress = "korenkov@prog.ru",
-                   EmployeePostAddress = "г.Москва пр. Маркса 21 "
-
+                   EmployeePostAddress = "г.Москва пр. Маркса 21 ",
+                   
+                  
                },
                 new Employee
                 {

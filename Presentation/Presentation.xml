@@ -148,6 +148,14 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>The employee with the specified identifier, if it exists.</returns>
         </member>
+        <member name="M:Presentation.Controllers.EmployeeController.GetByIdIncludeTask(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Gets the employee with the specified identifier include Task, if it exists.
+            </summary>
+            <param name="employeeId">The employee identifier.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The employee with the specified identifier, if it exists.</returns>
+        </member>
         <member name="M:Presentation.Controllers.EmployeeController.Create(Business.CQRS.EmployeeUnit.Commands.CreateEmployee.CreateEmployeeRequest,System.Threading.CancellationToken)">
             <summary>
             Creates a new employee based on the specified request.

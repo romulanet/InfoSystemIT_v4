@@ -3,6 +3,7 @@ using Business.CQRS.EmployeeUnit.Commands.DeleteEmployee;
 using Business.CQRS.EmployeeUnit.Commands.UpdateEmployee;
 using Business.CQRS.EmployeeUnit.Queries.GetEmployee;
 using Business.CQRS.EmployeeUnit.Queries.GetEmployeeById;
+using Business.CQRS.EmployeeUnit.Queries.GetEmployeeByIdIncludeTask;
 using Business.Responses;
 using Mapster;
 using MediatR;
@@ -18,7 +19,7 @@ namespace Presentation.Controllers
 {    /// <summary>
      /// The users controller.
      /// </summary>
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public sealed class EmployeeController : ControllerBase
@@ -59,6 +60,24 @@ namespace Presentation.Controllers
         public async Task<IActionResult> GetById(Guid employeeId, CancellationToken cancellationToken)
         {
             var query = new GetEmployeeByIdQuery(employeeId);
+
+            var employee = await _sender.Send(query, cancellationToken);
+
+            return Ok(employee);
+        }
+
+        /// <summary>
+        /// Gets the employee with the specified identifier include Task, if it exists.
+        /// </summary>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The employee with the specified identifier, if it exists.</returns>
+        [HttpGet("{employeeId:guid}/ProjectTask")]
+        [ProducesResponseType(typeof(EmployeeResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetByIdIncludeTask(Guid employeeId, CancellationToken cancellationToken)
+        {
+            var query = new GetEmployeeByIdIncludeTaskQuery(employeeId);
 
             var employee = await _sender.Send(query, cancellationToken);
 
