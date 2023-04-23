@@ -33,8 +33,8 @@ namespace Domain.Entities
         //Навигационные свойства
 
         public IList<ProjectTask>? ProjectTasks { get; set; }
-        public IList<Employee_Team>? Employees_Teams { get; set; }
-
+        public Guid? TeamId { get; set; }
+        public Team? Team { get; set; }
         public void Update(string firstName, string middlename, string lastName, string jobTitle, string telnumber, string mailAdress, string postAdress)
            => (EmployeeFName, EmployeeMName, EmployeeLName, EmployeeJobTitle, EmployeeTelNumber, EmployeeMailAddress, EmployeePostAddress)
            = (firstName, middlename, lastName, jobTitle, telnumber, mailAdress, postAdress);

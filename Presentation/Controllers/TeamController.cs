@@ -3,6 +3,7 @@ using Business.CQRS.TeamUnit.Commands.DeleteTeam;
 using Business.CQRS.TeamUnit.Commands.UpdateTeam;
 using Business.CQRS.TeamUnit.Queries.GetTeam;
 using Business.CQRS.TeamUnit.Queries.GetTeamById;
+using Business.CQRS.TeamUnit.Queries.GetTeamByIdIncludeEmployee;
 using Business.CQRS.TeamUnit.Queries.GetTeamByIdIncludeProject;
 using Business.Responses;
 using Mapster;
@@ -19,7 +20,7 @@ namespace Presentation.Controllers
 {   /// <summary>
     /// The users controller.
     /// </summary>
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TeamController : ControllerBase
@@ -78,6 +79,24 @@ namespace Presentation.Controllers
         public async Task<IActionResult> GetByIdIncludeProject(Guid teamId, CancellationToken cancellationToken)
         {
             var query = new GetTeamByIdIncludeProjectQuery(teamId);
+
+            var team = await _sender.Send(query, cancellationToken);
+
+            return Ok(team);
+        }
+
+        /// <summary>
+        /// Gets the team with the specified identifier include employee, if it exists.
+        /// </summary>
+        /// <param name="teamId">The team identifier.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The team with the specified identifier, if it exists.</returns>
+        [HttpGet("{teamId:guid}/Employee")]
+        [ProducesResponseType(typeof(TeamResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetByIdIncludeEmployee(Guid teamId, CancellationToken cancellationToken)
+        {
+            var query = new GetTeamByIdIncludeEmployeeQuery(teamId);
 
             var team = await _sender.Send(query, cancellationToken);
 

@@ -106,38 +106,6 @@ namespace Persistence.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Employees",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    EmployeeFName = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    EmployeeMName = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    EmployeeLName = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    EmployeeJobTitle = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    EmployeeTelNumber = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    EmployeeMailAddress = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    EmployeePostAddress = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedBy = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    UpdatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Employees", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Teams",
                 columns: table => new
                 {
@@ -317,22 +285,37 @@ namespace Persistence.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Employees_Teams",
+                name: "Employees",
                 columns: table => new
                 {
-                    EmployeeId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    TeamId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
+                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    EmployeeFName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    EmployeeMName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    EmployeeLName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    EmployeeJobTitle = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    EmployeeTelNumber = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    EmployeeMailAddress = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    EmployeePostAddress = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    TeamId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
+                    CreatedBy = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    UpdatedOn = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees_Teams", x => new { x.EmployeeId, x.TeamId });
+                    table.PrimaryKey("PK_Employees", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Employees_Teams_Employees_EmployeeId",
-                        column: x => x.EmployeeId,
-                        principalTable: "Employees",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Employees_Teams_Teams_TeamId",
+                        name: "FK_Employees_Teams_TeamId",
                         column: x => x.TeamId,
                         principalTable: "Teams",
                         principalColumn: "Id");
@@ -429,18 +412,8 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "CustomerCompanyTitle", "CustomerCountry", "CustomerFName", "CustomerLName", "CustomerMName", "CustomerMailAddress", "CustomerPostAddress", "CustomerTelNumber", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(3254), "Энергопроект", "Россия", "Петр", "Васнецов", "Петрович", "energoProject@.ru", "г. Воронеж ул. Воронина 56 офис 21", "8910567890", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(3255) },
-                    { new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(3230), "Экосистемы", "Россия", "Дмитрий", "Загородский", "Витальевич", "EcoSystem@eco.ru", "г. Москва пр. Ленина 21 офис 14", "89035678945", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(3235) }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Employees",
-                columns: new[] { "Id", "CreatedBy", "CreatedOn", "EmployeeFName", "EmployeeJobTitle", "EmployeeLName", "EmployeeMName", "EmployeeMailAddress", "EmployeePostAddress", "EmployeeTelNumber", "UpdatedBy", "UpdatedOn" },
-                values: new object[,]
-                {
-                    { new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7858), "Дмитрий", "Програмист", "Коренков", "Васильевич", "korenkov@prog.ru", "г.Москва пр. Маркса 21 ", "89056673245", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7859) },
-                    { new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7864), "Виталий", "Дизайнер", "Валежник", "Витальевич", "korenkov@prog.ru", "г.Уфа ул. Ленина 14 ", "89076222241", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7865) },
-                    { new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7867), "Андрей", "Менеджер проекта", "Паринков", "Витальевич", "parinkov@prog.ru", "г.Мытищи ул. Вологда 33", "8970545821", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7868) }
+                    { new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(424), "Энергопроект", "Россия", "Петр", "Васнецов", "Петрович", "energoProject@.ru", "г. Воронеж ул. Воронина 56 офис 21", "8910567890", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(425) },
+                    { new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(405), "Экосистемы", "Россия", "Дмитрий", "Загородский", "Витальевич", "EcoSystem@eco.ru", "г. Москва пр. Ленина 21 офис 14", "89035678945", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(410) }
                 });
 
             migrationBuilder.InsertData(
@@ -448,8 +421,8 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "TeamDescription", "TeamTitle", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7280), "Команда укомлектована дизайнером", "Команда по проекту ТехноМания", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7281) },
-                    { new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7275), "Команда укомлектована аналитиком", "Команда по проекту EcoLine", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(7276) }
+                    { new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(3432), "Команда укомлектована дизайнером", "Команда по проекту ТехноМания", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(3432) },
+                    { new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(3426), "Команда укомлектована аналитиком", "Команда по проекту EcoLine", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(3428) }
                 });
 
             migrationBuilder.InsertData(
@@ -457,44 +430,45 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "ContractDescription", "ContractTitle", "ContractTotalCost", "CreatedBy", "CreatedOn", "CustomerId", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "Обновление ПО для клиента", "Обновление ПО", "20 млн. руб", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(4991), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(4991) },
-                    { new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "Разработка ПО для клиента", "Разработка ПО", "40 млн. руб", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(4977), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(4980) }
+                    { new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "Обновление ПО для клиента", "Обновление ПО", "20 млн. руб", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(1323), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(1323) },
+                    { new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "Разработка ПО для клиента", "Разработка ПО", "40 млн. руб", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(1315), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(1316) }
                 });
 
             migrationBuilder.InsertData(
-                table: "Employees_Teams",
-                columns: new[] { "EmployeeId", "TeamId" },
+                table: "Employees",
+                columns: new[] { "Id", "CreatedBy", "CreatedOn", "EmployeeFName", "EmployeeJobTitle", "EmployeeLName", "EmployeeMName", "EmployeeMailAddress", "EmployeePostAddress", "EmployeeTelNumber", "TeamId", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a") },
-                    { new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe") },
-                    { new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe") }
+                    { new Guid("33d85a99-bda5-4aca-8904-ece3cb1084ea"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4031), "Пётр", "Дизайнер", "Гордеев", "Андреевич", "parinkov@prog.ru", "г.Мытищи ул. Вологда 33", "8970545821", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4031) },
+                    { new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4013), "Дмитрий", "Програмист", "Коренков", "Васильевич", "korenkov@prog.ru", "г.Москва пр. Маркса 21 ", "89056673245", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4014) },
+                    { new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4023), "Виталий", "Аналитик", "Валежник", "Витальевич", "korenkov@prog.ru", "г.Уфа ул. Ленина 14 ", "89076222241", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4024) },
+                    { new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4027), "Андрей", "Менеджер проекта", "Паринков", "Витальевич", "parinkov@prog.ru", "г.Мытищи ул. Вологда 33", "8970545821", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(4028) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Projects",
                 columns: new[] { "Id", "ContractId", "CreatedBy", "CreatedOn", "ProjectDescription", "ProjectFinishData", "ProjectStatus", "ProjectTimeSpent", "ProjectTitle", "ProjectType", "TeamId", "UpdatedBy", "UpdatedOn" },
-                values: new object[] { new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(5779), "Разработка ПО, Разработка и развёртывание", new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "300 ч", "Разработка ПО для компании ECOLine", "Разработка ПО", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(5781) });
+                values: new object[] { new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2029), "Разработка ПО, Разработка и развёртывание", new DateTime(2023, 8, 21, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "300 ч", "Разработка ПО для компании ECOLine", "Разработка ПО", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2031) });
 
             migrationBuilder.InsertData(
                 table: "Projects",
                 columns: new[] { "Id", "ContractId", "CreatedBy", "CreatedOn", "ProjectDescription", "ProjectFinishData", "ProjectStatus", "ProjectTimeSpent", "ProjectTitle", "ProjectType", "TeamId", "UpdatedBy", "UpdatedOn" },
-                values: new object[] { new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(5808), "Разработка ПО, Разработка и развёртывание", new DateTime(2023, 9, 30, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "400 ч", "Разработка ПО для компании ТехноМания", "Разработка ПО", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(5809) });
+                values: new object[] { new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2061), "Разработка ПО, Разработка и развёртывание", new DateTime(2023, 9, 30, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "400 ч", "Разработка ПО для компании ТехноМания", "Разработка ПО", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2062) });
 
             migrationBuilder.InsertData(
                 table: "ProjectTasks",
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "EmployeeId", "ProjectId", "TaskDescription", "TaskFinishData", "TaskStatus", "TaskTimeSpent", "TaskTitle", "UpdatedBy", "UpdatedOn" },
-                values: new object[] { new Guid("278c74e0-bfc0-48c0-8090-ee23cf303dae"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(6527), new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Моделирование БД для разработки по проекту ECOLine", new DateTime(2023, 5, 13, 18, 14, 12, 458, DateTimeKind.Local).AddTicks(6533), "Stopped", "12 ч", "Моделирование БД", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(6528) });
+                values: new object[] { new Guid("278c74e0-bfc0-48c0-8090-ee23cf303dae"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2775), new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Моделирование БД для разработки по проекту ECOLine", new DateTime(2023, 5, 13, 22, 1, 31, 777, DateTimeKind.Local).AddTicks(2781), "Stopped", "12 ч", "Моделирование БД", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2777) });
 
             migrationBuilder.InsertData(
                 table: "ProjectTasks",
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "EmployeeId", "ProjectId", "TaskDescription", "TaskFinishData", "TaskStatus", "TaskTimeSpent", "TaskTitle", "UpdatedBy", "UpdatedOn" },
-                values: new object[] { new Guid("38c87236-80b8-471e-bad4-24c318ba022f"), "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(6539), new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Тестирование ПО по проекту ECOLine", new DateTime(2023, 5, 7, 18, 14, 12, 458, DateTimeKind.Local).AddTicks(6541), "Stopped", "2 ч", "Тестирование ПО", "System", new DateTime(2023, 4, 23, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(6540) });
+                values: new object[] { new Guid("38c87236-80b8-471e-bad4-24c318ba022f"), "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2787), new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Тестирование ПО по проекту ECOLine", new DateTime(2023, 5, 7, 22, 1, 31, 777, DateTimeKind.Local).AddTicks(2790), "Stopped", "2 ч", "Тестирование ПО", "System", new DateTime(2023, 4, 23, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2788) });
 
             migrationBuilder.InsertData(
                 table: "ProjectTasks",
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "EmployeeId", "ProjectId", "TaskDescription", "TaskFinishData", "TaskStatus", "TaskTimeSpent", "TaskTitle", "UpdatedBy", "UpdatedOn" },
-                values: new object[] { new Guid("e3e3675a-f500-4f8b-8a44-35a07b540300"), "System", new DateTime(2023, 4, 13, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(6544), new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), "Разработка UI по проекту ТехноМания", new DateTime(2023, 4, 21, 18, 14, 12, 458, DateTimeKind.Local).AddTicks(6546), "Finished", "2 ч", "Разработка UI", "System", new DateTime(2023, 4, 21, 15, 14, 12, 458, DateTimeKind.Utc).AddTicks(6545) });
+                values: new object[] { new Guid("e3e3675a-f500-4f8b-8a44-35a07b540300"), "System", new DateTime(2023, 4, 13, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2794), new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), "Разработка UI по проекту ТехноМания", new DateTime(2023, 4, 21, 22, 1, 31, 777, DateTimeKind.Local).AddTicks(2796), "Finished", "2 ч", "Разработка UI", "System", new DateTime(2023, 4, 21, 19, 1, 31, 777, DateTimeKind.Utc).AddTicks(2795) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -557,8 +531,8 @@ namespace Persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employees_Teams_TeamId",
-                table: "Employees_Teams",
+                name: "IX_Employees_TeamId",
+                table: "Employees",
                 column: "TeamId");
 
             migrationBuilder.CreateIndex(
@@ -616,9 +590,6 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Employees_Teams");
 
             migrationBuilder.DropTable(
                 name: "ProjectTasks");

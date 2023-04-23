@@ -15,7 +15,6 @@ namespace Persistence
         public DbSet<ProjectTask> ProjectTasks { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Employee_Team> Employees_Teams { get; set; }
 
         public DataDBContext(DbContextOptions<DataDBContext> options)
             : base(options) { }
@@ -29,7 +28,6 @@ namespace Persistence
             builder.ApplyConfiguration(new TeamConfiguration());
             builder.ApplyConfiguration(new EmployeeConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
-            builder.ApplyConfiguration(new EmployeeTeamConfiguration());
 
             base.OnModelCreating(builder);
         }

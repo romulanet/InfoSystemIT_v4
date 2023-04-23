@@ -1,4 +1,6 @@
-﻿namespace Business.Responses
+﻿using Domain.Entities;
+
+namespace Business.Responses
 {
     public sealed record EmployeeResponse(
         Guid Id,
@@ -13,7 +15,6 @@
         DateTime CreatedOn,
         string UpdatedBy,
         DateTime UpdatedOn,
-        IEnumerable<ProjectTaskResponse> ProjectTasks,
-        IEnumerable<EmployeeTeamResponse> Employees_Teams
+        IEnumerable<ProjectTaskResponse> ProjectTasks
         );
 }

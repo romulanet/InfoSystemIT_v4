@@ -8,6 +8,7 @@ namespace Domain.IRepositories
 
         Task<Team> GetByIdAsync(Guid userId, CancellationToken cancellationToken = default);
         Task<Team> GetByIdIncludeProjectAsync(Guid userId, CancellationToken cancellationToken = default);
+        Task<Team> GetByIdIncludeEmployeeAsync(Guid userId, CancellationToken cancellationToken = default);
 
         void Insert(Team team);
 

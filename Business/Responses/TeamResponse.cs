@@ -8,6 +8,7 @@
        DateTime CreatedOn,
        string UpdatedBy,
        DateTime UpdatedOn,
-       IEnumerable<ProjectResponse> Projects
+       IEnumerable<ProjectResponse> Projects,
+       IEnumerable<EmployeeResponse> Employees
        );
 }

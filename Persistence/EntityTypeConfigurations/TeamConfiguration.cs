@@ -24,6 +24,7 @@ namespace Persistence.EntityTypeConfigurations
                Id = new Guid("9E1257C8-00D1-4BA9-80AF-F84B8E29431A"),
                TeamTitle = "Команда по проекту EcoLine",
                TeamDescription = "Команда укомлектована аналитиком",
+
            },
            new Team
            {

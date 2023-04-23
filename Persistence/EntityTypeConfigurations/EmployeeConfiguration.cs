@@ -28,8 +28,7 @@ namespace Persistence.EntityTypeConfigurations
                    EmployeeTelNumber = "89056673245",
                    EmployeeMailAddress = "korenkov@prog.ru",
                    EmployeePostAddress = "г.Москва пр. Маркса 21 ",
-                   
-                  
+                   TeamId = new Guid("9E1257C8-00D1-4BA9-80AF-F84B8E29431A")                            
                },
                 new Employee
                 {
@@ -41,10 +40,11 @@ namespace Persistence.EntityTypeConfigurations
                     EmployeeFName = "Виталий",
                     EmployeeMName = "Витальевич",
                     EmployeeLName = "Валежник",
-                    EmployeeJobTitle = "Дизайнер",
+                    EmployeeJobTitle = "Аналитик",
                     EmployeeTelNumber = "89076222241",
                     EmployeeMailAddress = "korenkov@prog.ru",
-                    EmployeePostAddress = "г.Уфа ул. Ленина 14 "
+                    EmployeePostAddress = "г.Уфа ул. Ленина 14 ",
+                    TeamId = new Guid("9E1257C8-00D1-4BA9-80AF-F84B8E29431A")
 
                 },
                new Employee
@@ -60,7 +60,24 @@ namespace Persistence.EntityTypeConfigurations
                    EmployeeJobTitle = "Менеджер проекта",
                    EmployeeTelNumber = "8970545821",
                    EmployeeMailAddress = "parinkov@prog.ru",
-                   EmployeePostAddress = "г.Мытищи ул. Вологда 33"
+                   EmployeePostAddress = "г.Мытищи ул. Вологда 33",
+                   TeamId = new Guid("1C29869D-49E6-4A8E-A1EB-8773497E80FE")
+               },
+               new Employee
+               {
+                   CreatedOn = DateTime.UtcNow,
+                   CreatedBy = Constants.UserName.System,
+                   UpdatedOn = DateTime.UtcNow,
+                   UpdatedBy = Constants.UserName.System,
+                   Id = new Guid("33D85A99-BDA5-4ACA-8904-ECE3CB1084EA"),
+                   EmployeeFName = "Пётр",
+                   EmployeeMName = "Андреевич",
+                   EmployeeLName = "Гордеев",
+                   EmployeeJobTitle = "Дизайнер",
+                   EmployeeTelNumber = "8970545821",
+                   EmployeeMailAddress = "parinkov@prog.ru",
+                   EmployeePostAddress = "г.Мытищи ул. Вологда 33",
+                   TeamId = new Guid("1C29869D-49E6-4A8E-A1EB-8773497E80FE")
                }
            );
         }
