@@ -20,6 +20,7 @@ namespace Persistence.Repositories
         public Task<Team> GetByIdIncludeProjectAsync(Guid teamId, CancellationToken cancellationToken = default) =>
              _dbContext.Teams.Where(team => team.Id == teamId)
             .Include(ts => ts.Projects)
+            .Include(ts => ts.Employees)
             .FirstOrDefaultAsync();
         public Task<Team> GetByIdIncludeEmployeeAsync(Guid teamId, CancellationToken cancellationToken = default) =>
           _dbContext.Teams.Where(team => team.Id == teamId)

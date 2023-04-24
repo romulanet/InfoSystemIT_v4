@@ -21,7 +21,7 @@ namespace Domain.Entities
         public string TeamDescription { get; set; }= string.Empty;  
 
         public ICollection<Project>? Projects { get; set; }
-        public IList<Employee>? Employees { get; set; }
+        public ICollection<Employee>? Employees { get; set; }
 
         public void Update(string title, string description)
            => (TeamTitle, TeamDescription)

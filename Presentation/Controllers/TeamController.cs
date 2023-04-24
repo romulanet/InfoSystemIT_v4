@@ -20,7 +20,7 @@ namespace Presentation.Controllers
 {   /// <summary>
     /// The users controller.
     /// </summary>
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TeamController : ControllerBase
@@ -68,12 +68,12 @@ namespace Presentation.Controllers
         }
 
         /// <summary>
-        /// Gets the team with the specified identifier include project, if it exists.
+        /// Gets the team with the specified identifier include project and employee, if it exists.
         /// </summary>
         /// <param name="teamId">The team identifier.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The team with the specified identifier, if it exists.</returns>
-        [HttpGet("{teamId:guid}/Project")]
+        [HttpGet("{teamId:guid}/ProjectEmployee")]
         [ProducesResponseType(typeof(TeamResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetByIdIncludeProject(Guid teamId, CancellationToken cancellationToken)
@@ -143,8 +143,6 @@ namespace Presentation.Controllers
 
             return NoContent();
         }
-
-
 
         /// <summary>
         /// Delete the team with the specified identifier based on the specified request, if it exists.

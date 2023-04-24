@@ -29,7 +29,6 @@
             public const string Stopped = "Stopped";
             public const string Finished = "Finished";
         }
-
         public static class UserName
         {
             public const string System = "System";
