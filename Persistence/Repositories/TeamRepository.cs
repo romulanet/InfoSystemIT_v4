@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Contracts;
 
 namespace Persistence.Repositories
 {
@@ -27,7 +26,7 @@ namespace Persistence.Repositories
          .Include(ts => ts.Employees)
          .FirstOrDefaultAsync();
 
-        
+
         public void Insert(Team team) => _dbContext.Teams.Add(team);
 
         public void Remove(Team team) => _dbContext.Teams.Remove(team);

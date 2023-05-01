@@ -7,7 +7,7 @@ using Persistence.EntityTypeConfigurations;
 
 namespace Persistence
 {
-    public class DataDBContext : IdentityDbContext<User> 
+    public class DataDBContext : IdentityDbContext<User>
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Contract> Contracts { get; set; }

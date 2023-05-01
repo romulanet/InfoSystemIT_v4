@@ -2,8 +2,8 @@
 using Business.CQRS.ProjectTaskUnit.Commands.DeleteProjectTask;
 using Business.CQRS.ProjectTaskUnit.Commands.UpdateProjectTask;
 using Business.CQRS.ProjectTaskUnit.Queries.GetProjectTask;
-using Business.CQRS.ProjectTaskUnit.Queries.GetProjectTaskById;
 using Business.CQRS.ProjectTaskUnit.Queries.GetProjectTaskActive;
+using Business.CQRS.ProjectTaskUnit.Queries.GetProjectTaskById;
 using Business.Responses;
 using Mapster;
 using MediatR;
@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 

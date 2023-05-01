@@ -30,7 +30,7 @@ namespace Persistence.EntityTypeConfigurations
                   ProjectFinishData = DateTime.Today.AddDays(120),
                   ContractId = new Guid("6442D3EA-986D-4ED0-B249-6993FA75ED83"),
                   TeamId = new Guid("9E1257C8-00D1-4BA9-80AF-F84B8E29431A")
-                  
+
               },
               new Project
               {

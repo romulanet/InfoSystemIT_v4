@@ -15,7 +15,7 @@ namespace Persistence.Repositories
             _dbContext.ProjectTasks.ToListAsync(cancellationToken);
 
         public Task<List<ProjectTask>> GetAsyncActive(CancellationToken cancellationToken = default) =>
-            _dbContext.ProjectTasks.Where(x=>x.TaskStatus == Constants.ProjectTaskStatus.Stopped
+            _dbContext.ProjectTasks.Where(x => x.TaskStatus == Constants.ProjectTaskStatus.Stopped
             || x.TaskStatus == Constants.ProjectTaskStatus.InProcess).ToListAsync(cancellationToken);
 
         public Task<ProjectTask> GetByIdAsync(Guid projectTaskId, CancellationToken cancellationToken = default) =>

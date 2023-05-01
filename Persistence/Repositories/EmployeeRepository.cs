@@ -16,7 +16,7 @@ namespace Persistence.Repositories
         public Task<Employee> GetByIdAsync(Guid employeeId, CancellationToken cancellationToken = default) =>
             _dbContext.Employees.FirstOrDefaultAsync(employee => employee.Id == employeeId, cancellationToken);
 
-        public Task<Employee> GetByIdIncludeTaskAsync(Guid employeeId, CancellationToken cancellationToken = default) => 
+        public Task<Employee> GetByIdIncludeTaskAsync(Guid employeeId, CancellationToken cancellationToken = default) =>
             _dbContext.Employees.Where(employee => employee.Id == employeeId)
             .Include(ts => ts.ProjectTasks)
             .FirstOrDefaultAsync();

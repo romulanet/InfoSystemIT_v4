@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Business.Responses
+﻿namespace Business.Responses
 {
     public sealed record ProjectTaskResponse(
         Guid Id,

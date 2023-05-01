@@ -28,7 +28,7 @@ namespace Persistence.EntityTypeConfigurations
                    EmployeeTelNumber = "89056673245",
                    EmployeeMailAddress = "korenkov@prog.ru",
                    EmployeePostAddress = "г.Москва пр. Маркса 21 ",
-                   TeamId = new Guid("9E1257C8-00D1-4BA9-80AF-F84B8E29431A")                            
+                   TeamId = new Guid("9E1257C8-00D1-4BA9-80AF-F84B8E29431A")
                },
                 new Employee
                 {
