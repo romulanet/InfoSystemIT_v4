@@ -3,7 +3,7 @@
     public sealed class ValidationException : ApplicationException
     {
         public ValidationException(IReadOnlyDictionary<string, string[]> errorsDictionary)
-            : base("Validation Failure", "One or more validation errors occurred")
+            : base("Ошибка Валидации", "Одна или несколько ошибок валидации")
             => ErrorsDictionary = errorsDictionary;
 
         public IReadOnlyDictionary<string, string[]> ErrorsDictionary { get; }
