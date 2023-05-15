@@ -1,11 +1,13 @@
-﻿using Business.CQRS.TeamUnit.Commands.CreateTeam;
+﻿using Business.CQRS.ProjectUnit.Queries.GetProjectByIdIncludeTask;
+using Business.CQRS.TeamUnit.Commands.CreateTeam;
 using Business.CQRS.TeamUnit.Commands.DeleteTeam;
 using Business.CQRS.TeamUnit.Commands.UpdateTeam;
 using Business.CQRS.TeamUnit.Queries.GetTeam;
 using Business.CQRS.TeamUnit.Queries.GetTeamById;
 using Business.CQRS.TeamUnit.Queries.GetTeamByIdIncludeEmployee;
-using Business.CQRS.TeamUnit.Queries.GetTeamByIdIncludeProject;
+using Business.CQRS.TeamUnit.Queries.GetTeamByIdIncludeProjectEmployee;
 using Business.Responses;
+using Domain.Entities;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -13,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -76,9 +79,9 @@ namespace Presentation.Controllers
         [HttpGet("{teamId:guid}/ProjectEmployee")]
         [ProducesResponseType(typeof(TeamResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetByIdIncludeProject(Guid teamId, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetByIdIncludeAll(Guid teamId, CancellationToken cancellationToken)
         {
-            var query = new GetTeamByIdIncludeProjectQuery(teamId);
+            var query = new GetTeamByIdIncludeAllQuery(teamId);
 
             var team = await _sender.Send(query, cancellationToken);
 
@@ -155,10 +158,15 @@ namespace Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid teamId, CancellationToken cancellationToken)
         {
+            var query = new GetTeamByIdIncludeAllQuery(teamId);
+            var teamInAll = await _sender.Send(query, cancellationToken);
+            if (teamInAll.Projects.Count() > 0 || teamInAll.Employees.Count() > 0)
+            {
+                return BadRequest("У команды есть не закрытые проекты и сотрудники в команде");
+            }
+
             var command = new DeleteTeamCommand(teamId);
-
             var team = await _sender.Send(command, cancellationToken);
-
             return NoContent();
         }
     }

@@ -4,7 +4,9 @@ using Business.CQRS.CustomerUnit.Commands.UpdateCustomer;
 using Business.CQRS.CustomerUnit.Queries.GetCustomer;
 using Business.CQRS.CustomerUnit.Queries.GetCustomerById;
 using Business.CQRS.CustomerUnit.Queries.GetCustomerByIdIncludeContract;
+using Business.CQRS.ProjectUnit.Queries.GetProjectByIdIncludeTask;
 using Business.Responses;
+using Domain.Entities;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -144,10 +147,15 @@ namespace Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid customerId, CancellationToken cancellationToken)
         {
+            var query = new GetCustomerByIdIncludeContractQuery(customerId);
+            var customer = await _sender.Send(query, cancellationToken);
+            if (customer.Contracts.Count() > 0)
+            {
+                return BadRequest("У клиента есть не закрытые договора");
+            }
+
             var command = new DeleteCustomerCommand(customerId);
-
-            var customer = await _sender.Send(command, cancellationToken);
-
+            var deleteCustomer = await _sender.Send(command, cancellationToken);
             return NoContent();
         }
     }

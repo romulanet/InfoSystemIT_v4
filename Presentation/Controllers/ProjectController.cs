@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -140,10 +141,15 @@ namespace Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid projectId, CancellationToken cancellationToken)
         {
+            var query = new GetProjectByIdIncludeTaskQuery(projectId);
+            var project = await _sender.Send(query, cancellationToken);
+            if(project.ProjectTasks.Count() > 0)
+            {
+                return BadRequest("У проекта есть не закрытые задачи");
+            }
+
             var command = new DeleteProjectCommand(projectId);
-
-            var project = await _sender.Send(command, cancellationToken);
-
+            var deleteProject = await _sender.Send(command, cancellationToken);
             return NoContent();
         }
     }

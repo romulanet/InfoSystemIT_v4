@@ -4,7 +4,9 @@ using Business.CQRS.ContractUnit.Commands.UpdateContract;
 using Business.CQRS.ContractUnit.Queries.GetContract;
 using Business.CQRS.ContractUnit.Queries.GetContractById;
 using Business.CQRS.ContractUnit.Queries.GetContractByIdIncludeProject;
+using Business.CQRS.ProjectUnit.Queries.GetProjectByIdIncludeTask;
 using Business.Responses;
+using Domain.Entities;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -139,10 +142,15 @@ namespace Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid contractId, CancellationToken cancellationToken)
         {
+            var query = new GetContractByIdIncludeProjectQuery(contractId);
+            var contract = await _sender.Send(query, cancellationToken);
+            if (contract.Projects.Count() > 0)
+            {
+                return BadRequest("У договора есть не закрытые проекты");
+            }
+
             var command = new DeleteProjectCommand(contractId);
-
-            var contract = await _sender.Send(command, cancellationToken);
-
+            var deleteContract = await _sender.Send(command, cancellationToken);
             return NoContent();
         }
     }

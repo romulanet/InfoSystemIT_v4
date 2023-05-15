@@ -5,7 +5,7 @@ namespace Domain.Entities
 {
     public class Project : CreateUpdateInfo
     {
-        public Project(string title, string description, string type, string status, string timeSpent, DateTime finishData)
+        public Project(string title, string type, string description, string status, string timeSpent, DateTime finishData)
           : this()
         {
             ProjectTitle = title;
