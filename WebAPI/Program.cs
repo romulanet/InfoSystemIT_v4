@@ -6,6 +6,8 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
@@ -15,6 +17,7 @@ using Serilog.Events;
 using System.Reflection;
 using System.Text;
 using WebAPI.JwtFeatures;
+using WebAPI.Logger;
 using WebAPI.Middleware;
 
 namespace WebAPI
@@ -23,12 +26,6 @@ namespace WebAPI
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-                .WriteTo.File("./Log/InfoSystemITLog.txt", rollingInterval:
-                    RollingInterval.Day)
-                .CreateLogger();
-
             var builder = WebApplication.CreateBuilder(args);
 
             var presentationAssembly = typeof(Presentation.AssemblyReference).Assembly;
@@ -72,7 +69,6 @@ namespace WebAPI
             });
 
             builder.Services.AddScoped<JwtHandler>();
-
             builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
             builder.Services.AddScoped<IContractRepository, ContractRepository>();
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
@@ -81,17 +77,17 @@ namespace WebAPI
             builder.Services.AddScoped<ITeamRepository, TeamRepository>();
 
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
             builder.Services.AddTransient<ExceptionHandlingMiddleware>();
+            builder.Services.TryAddEnumerable(
+                   ServiceDescriptor.Singleton<ILoggerProvider, ColorConsoleLoggerProvider>());
+                   LoggerProviderOptions.RegisterProviderOptions
+                   <ColorConsoleLoggerConfiguration, ColorConsoleLoggerProvider>(builder.Services);
 
             var applicationAssembly = typeof(Business.AssemblyReference).Assembly;
 
             builder.Services.AddMediatR(applicationAssembly);
-
             builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-
             builder.Services.AddValidatorsFromAssembly(applicationAssembly);
-
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(cfg =>
@@ -129,6 +125,7 @@ namespace WebAPI
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
             });
+
             var app = builder.Build();
             using (var scope = app.Services.CreateScope())
             {
@@ -141,6 +138,10 @@ namespace WebAPI
                 catch (Exception exception)
                 {
                     Log.Fatal(exception, "An error occurred while app initialization");
+                }
+                finally
+                {
+                    Log.CloseAndFlush();
                 }
             }
 
@@ -164,24 +165,17 @@ namespace WebAPI
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
-
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.All
             });
 
             app.UseCors("CorsPolicy");
-            //  app.UseCors(
-            //    options => options.SetIsOriginAllowed(x => _ = true).AllowAnyMethod().AllowAnyHeader().AllowCredentials()
-            //);
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.MapControllers();
-
             app.Run();
 
         }
