@@ -333,7 +333,7 @@
             <param name="cancellationToken">The cancellation token.</param>
             <returns>The team with the specified identifier, if it exists.</returns>
         </member>
-        <member name="M:Presentation.Controllers.TeamController.GetByIdIncludeProject(System.Guid,System.Threading.CancellationToken)">
+        <member name="M:Presentation.Controllers.TeamController.GetByIdIncludeAll(System.Guid,System.Threading.CancellationToken)">
             <summary>
             Gets the team with the specified identifier include project and employee, if it exists.
             </summary>
