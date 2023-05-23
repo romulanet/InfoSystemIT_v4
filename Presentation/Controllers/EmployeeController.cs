@@ -1,10 +1,12 @@
-﻿using Business.CQRS.EmployeeUnit.Commands.CreateEmployee;
+﻿using Business.CQRS.CustomerUnit.Queries.GetCustomerByIdIncludeContract;
+using Business.CQRS.EmployeeUnit.Commands.CreateEmployee;
 using Business.CQRS.EmployeeUnit.Commands.DeleteEmployee;
 using Business.CQRS.EmployeeUnit.Commands.UpdateEmployee;
 using Business.CQRS.EmployeeUnit.Queries.GetEmployee;
 using Business.CQRS.EmployeeUnit.Queries.GetEmployeeById;
 using Business.CQRS.EmployeeUnit.Queries.GetEmployeeByIdIncludeTask;
 using Business.Responses;
+using Domain.Entities;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -12,6 +14,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -75,7 +78,7 @@ namespace Presentation.Controllers
         [HttpGet("{employeeId:guid}/ProjectTask")]
         [ProducesResponseType(typeof(EmployeeResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetByIdIncludeTask(Guid employeeId, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetEmployeeByIdIncludeTask(Guid employeeId, CancellationToken cancellationToken)
         {
             var query = new GetEmployeeByIdIncludeTaskQuery(employeeId);
 
@@ -141,10 +144,15 @@ namespace Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid employeeId, CancellationToken cancellationToken)
         {
+            var query = new GetEmployeeByIdIncludeTaskQuery(employeeId);
+            var employee = await _sender.Send(query, cancellationToken);
+            if (employee.ProjectTasks.Count() > 0)
+            {
+                return BadRequest("У сотрудника есть не закрытые задачи");
+            }
+
             var command = new DeleteEmployeeCommand(employeeId);
-
-            var employee = await _sender.Send(command, cancellationToken);
-
+            var deleteEmployee = await _sender.Send(command, cancellationToken);
             return NoContent();
         }
     }
