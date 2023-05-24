@@ -1,4 +1,4 @@
-﻿using Domain.IRepositories;
+﻿using Business.IRepositories;
 
 namespace Persistence.Repositories
 {

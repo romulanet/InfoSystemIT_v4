@@ -1,4 +1,4 @@
-﻿namespace Domain.IRepositories
+﻿namespace Business.IRepositories
 {
     public interface IUnitOfWork
     {

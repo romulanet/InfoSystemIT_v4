@@ -1,6 +1,6 @@
 ﻿using Business.Abstractions.Messages;
 using Business.Exceptions;
-using Domain.IRepositories;
+using Business.IRepositories;
 using MediatR;
 
 namespace Business.CQRS.ProjectTaskUnit.Commands.DeleteProjectTask

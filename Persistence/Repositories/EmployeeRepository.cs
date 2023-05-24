@@ -1,5 +1,5 @@
-﻿using Domain.Entities;
-using Domain.IRepositories;
+﻿using Business.IRepositories;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories

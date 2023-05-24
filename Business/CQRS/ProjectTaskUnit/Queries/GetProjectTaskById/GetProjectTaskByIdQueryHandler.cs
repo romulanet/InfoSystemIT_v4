@@ -1,7 +1,7 @@
 ﻿using Business.Abstractions.Messages;
 using Business.Exceptions;
+using Business.IRepositories;
 using Business.Responses;
-using Domain.IRepositories;
 using Mapster;
 
 namespace Business.CQRS.ProjectTaskUnit.Queries.GetProjectTaskById

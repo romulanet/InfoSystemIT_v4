@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 
-namespace Domain.IRepositories
+namespace Business.IRepositories
 {
     public interface IProjectTaskRepository
     {

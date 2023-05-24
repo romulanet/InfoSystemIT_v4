@@ -1,6 +1,6 @@
 using Business.Behaviors;
+using Business.IRepositories;
 using Domain.Entities;
-using Domain.IRepositories;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
