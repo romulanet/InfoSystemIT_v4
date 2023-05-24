@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Persistence.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -404,15 +405,20 @@ namespace Persistence.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "f3bd501d-6647-4f51-95ce-412ae3552ed9", 0, "340aa380-03c4-45ab-a8e9-196e2d29f984", "admin@admin", false, "admin", null, false, null, "ADMIN@ADMIN", "ADMIN", "AQAAAAEAACcQAAAAEKEDcwyDbzgtKJayFDqQtjqdc30H1/pBn4BLjKi4P7GA7MNO0TyymjLTrruZdjEzDA==", null, false, "WCBIVXTPLTZ57TRN53RAKPY6EM6V62CL", false, "admin" });
+                values: new object[,]
+                {
+                    { "f3bd501d-6647-4f51-95ce-412ae3552ed9", 0, "340aa380-03c4-45ab-a8e9-196e2d29f984", "admin@admin", false, "admin", null, false, null, "ADMIN@ADMIN", "ADMIN", "AQAAAAEAACcQAAAAEKEDcwyDbzgtKJayFDqQtjqdc30H1/pBn4BLjKi4P7GA7MNO0TyymjLTrruZdjEzDA==", null, false, "WCBIVXTPLTZ57TRN53RAKPY6EM6V62CL", false, "admin" },
+                    { "f3bd501d-6647-4f51-95ce-412ae3552ee9", 0, "c9a74009-ca76-4231-bad5-39b8f7663830", "ravil@mail.com", false, "Ravil", null, false, null, "RAVIL@MAIL.COM", "RAVIL", "AQAAAAEAACcQAAAAEMQrxMoeM/bI2Dtkpe/zkgr2QAQwRx1HZIkpBuqXBbgtsRfvB9dSgxBnATU0gSZQeg==", null, false, "HR2DKDZZFCG555WQRJVEUZ4CMPVQPDSX", false, "Ravil" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "CustomerCompanyTitle", "CustomerCountry", "CustomerFName", "CustomerLName", "CustomerMName", "CustomerMailAddress", "CustomerPostAddress", "CustomerTelNumber", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5400), "Энергопроект", "Россия", "Петр", "Васнецов", "Петрович", "energoProject@.ru", "г. Воронеж ул. Воронина 56 офис 21", "8910567890", "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5401) },
-                    { new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5372), "Экосистемы", "Россия", "Дмитрий", "Загородский", "Витальевич", "EcoSystem@eco.ru", "г. Москва пр. Ленина 21 офис 14", "89035678945", "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5378) }
+                    { new Guid("7df41162-1895-48d4-90ed-321e4291789e"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(526), "Экосистемы", "Россия", "Дмитрий", "Загородский", "Витальевич", "EcoSystem@eco.ru", "г. Москва пр. Ленина 21 офис 14", "89035678945", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(530) },
+                    { new Guid("7fa2a4b2-c04c-4f2e-8e32-218a60914684"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(548), "Смарт-Решения", "Россия", "Василий", "Колыванов", "Иванович", "smartD@sd.ru", "г.Калуга ул. Ковалёва 15 офис 56", "8916766891", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(549) },
+                    { new Guid("a8fd7901-4a88-4199-a08c-2ba723d094ea"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(544), "Энергопроект", "Россия", "Петр", "Васнецов", "Петрович", "energoProject@ep.ru", "г. Воронеж ул. Воронина 56 офис 21", "8910567890", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(544) }
                 });
 
             migrationBuilder.InsertData(
@@ -420,8 +426,9 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "TeamDescription", "TeamTitle", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1185), "Команда укомлектована дизайнером", "Команда по проекту ТехноМания", "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1186) },
-                    { new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1175), "Команда укомлектована аналитиком", "Команда по проекту EcoLine", "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1178) }
+                    { new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3495), "Команда укомлектована дизайнером", "Команда по проекту Энергопроект", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3496) },
+                    { new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3489), "Команда укомлектована аналитиком", "Команда по проекту Экосистем", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3491) },
+                    { new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3498), "Команда укомлектована аналитиком", "Команда по проекту Смарт-Решения", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3498) }
                 });
 
             migrationBuilder.InsertData(
@@ -429,8 +436,9 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "ContractDescription", "ContractTitle", "ContractTotalCost", "CreatedBy", "CreatedOn", "CustomerId", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "Обновление ПО для клиента", "Обновление ПО", "20 млн. руб", "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7111), new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7112) },
-                    { new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "Разработка ПО для клиента", "Разработка ПО", "40 млн. руб", "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7100), new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7102) }
+                    { new Guid("3e53a63a-cd4c-49fd-816d-d8d5d136dce4"), "Реинжениринг ИС. Василий Колыванов", "Реинжениринг ИС Смарт-Решения", "20 млн. руб", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1383), new Guid("7fa2a4b2-c04c-4f2e-8e32-218a60914684"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1383) },
+                    { new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "Обновление ИС Петр Васнецов", "Обновление ИС Энергопроект", "20 млн. руб", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1379), new Guid("a8fd7901-4a88-4199-a08c-2ba723d094ea"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1380) },
+                    { new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "Разработка ПО.Дмитрий Загородский", "Разработка ИС для Экосистем", "40 млн. руб", "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1372), new Guid("7df41162-1895-48d4-90ed-321e4291789e"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1373) }
                 });
 
             migrationBuilder.InsertData(
@@ -438,31 +446,42 @@ namespace Persistence.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "EmployeeFName", "EmployeeJobTitle", "EmployeeLName", "EmployeeMName", "EmployeeMailAddress", "EmployeePostAddress", "EmployeeTelNumber", "TeamId", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("33d85a99-bda5-4aca-8904-ece3cb1084ea"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2144), "Пётр", "Дизайнер", "Гордеев", "Андреевич", "parinkov@prog.ru", "г.Мытищи ул. Вологда 33", "8970545821", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2145) },
-                    { new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2121), "Дмитрий", "Програмист", "Коренков", "Васильевич", "korenkov@prog.ru", "г.Москва пр. Маркса 21 ", "89056673245", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2123) },
-                    { new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2132), "Виталий", "Аналитик", "Валежник", "Витальевич", "korenkov@prog.ru", "г.Уфа ул. Ленина 14 ", "89076222241", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2133) },
-                    { new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2139), "Андрей", "Менеджер проекта", "Паринков", "Витальевич", "parinkov@prog.ru", "г.Мытищи ул. Вологда 33", "8970545821", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2140) }
+                    { new Guid("33d85a99-bda5-4aca-8904-ece3cb1084ea"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4029), "Пётр", "Дизайнер", "Гордеев", "Андреевич", "parinkov@prog.ru", "г.Мытищи ул. Вологда 33", "8970545821", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4029) },
+                    { new Guid("554644c6-be02-42b2-84c0-cb4faec335bd"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4032), "Иван", "Аналитик", "Василевский", "Васильевич", "vasilevsky@prog.ru", "г.Мытищи ул. Ленина 54", "8971567821", new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4032) },
+                    { new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4014), "Дмитрий", "Програмист", "Коренков", "Васильевич", "korenkov@prog.ru", "г.Москва пр. Маркса 21 ", "89056673245", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4015) },
+                    { new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4021), "Виталий", "Аналитик", "Валежник", "Витальевич", "korenkov@prog.ru", "г.Уфа ул. Ленина 14 ", "89076222241", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4021) },
+                    { new Guid("d78fbbe4-7447-4d05-833c-5eeb3950e0d5"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4035), "Ольга", "Програмист", "Гордеева", "Андреевна", "o.gordeeva@prog.ru", "г.Москва пр. Мира 33 кв.234", "8956789045", new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4036) },
+                    { new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4025), "Андрей", "Менеджер проекта", "Паринков", "Витальевич", "parinkov@prog.ru", "г.Мытищи ул. Вологда 33", "8970545821", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4026) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Projects",
                 columns: new[] { "Id", "ContractId", "CreatedBy", "CreatedOn", "ProjectDescription", "ProjectFinishData", "ProjectStatus", "ProjectTimeSpent", "ProjectTitle", "ProjectType", "TeamId", "UpdatedBy", "UpdatedOn" },
-                values: new object[] { new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8269), "Разработка ПО, Разработка и развёртывание", new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "300 ч", "Разработка ПО для компании ECOLine", "Разработка ПО", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8271) });
+                values: new object[] { new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2042), "Разработка ИС, Разработка и развёртывание", new DateTime(2023, 9, 21, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "300 ч", "Разработка ИС для Экосистем", "Разработка ИС", new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2043) });
 
             migrationBuilder.InsertData(
                 table: "Projects",
                 columns: new[] { "Id", "ContractId", "CreatedBy", "CreatedOn", "ProjectDescription", "ProjectFinishData", "ProjectStatus", "ProjectTimeSpent", "ProjectTitle", "ProjectType", "TeamId", "UpdatedBy", "UpdatedOn" },
-                values: new object[] { new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8312), "Разработка ПО, Разработка и развёртывание", new DateTime(2023, 10, 1, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "400 ч", "Разработка ПО для компании ТехноМания", "Разработка ПО", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8314) });
+                values: new object[] { new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2070), "Обновление ИС, Обновление и тестирование", new DateTime(2023, 9, 1, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "150 ч", "Обновление ИС Энергопроект", "Обновление ИС", new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2072) });
+
+            migrationBuilder.InsertData(
+                table: "Projects",
+                columns: new[] { "Id", "ContractId", "CreatedBy", "CreatedOn", "ProjectDescription", "ProjectFinishData", "ProjectStatus", "ProjectTimeSpent", "ProjectTitle", "ProjectType", "TeamId", "UpdatedBy", "UpdatedOn" },
+                values: new object[] { new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"), new Guid("3e53a63a-cd4c-49fd-816d-d8d5d136dce4"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2077), "Реинжениринг ИС, Реинжениринг и развёртывание", new DateTime(2023, 10, 31, 0, 0, 0, 0, DateTimeKind.Local), "InProcess", "400 ч", "Реинжениринг ИС Смарт-Решения", "Реинжениринг ИС", new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"), "System", new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2077) });
 
             migrationBuilder.InsertData(
                 table: "ProjectTasks",
                 columns: new[] { "Id", "CreatedBy", "CreatedOn", "EmployeeId", "ProjectId", "TaskDescription", "TaskFinishData", "TaskStatus", "TaskTimeSpent", "TaskTitle", "UpdatedBy", "UpdatedOn" },
                 values: new object[,]
                 {
-                    { new Guid("278c74e0-bfc0-48c0-8090-ee23cf303dae"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9842), new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Моделирование БД для разработки по проекту ECOLine", new DateTime(2023, 5, 14, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9851), "Stopped", "12 ч", "Моделирование БД", "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9844) },
-                    { new Guid("38c87236-80b8-471e-bad4-24c318ba022f"), "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9863), new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Тестирование ПО по проекту ECOLine", new DateTime(2023, 5, 8, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9866), "Stopped", "2 ч", "Тестирование ПО", "System", new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9863) },
-                    { new Guid("d2016c56-3c07-47d6-8e63-124847836a6a"), "System", new DateTime(2023, 4, 14, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9882), new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), "Разработка ТЗ по проекту ТехноМания", new DateTime(2023, 4, 22, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9886), "Finished", "2 ч", "Разработка ТЗ", "System", new DateTime(2023, 4, 22, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9883) },
-                    { new Guid("e3e3675a-f500-4f8b-8a44-35a07b540300"), "System", new DateTime(2023, 4, 14, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9872), new Guid("33d85a99-bda5-4aca-8904-ece3cb1084ea"), new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), "Разработка UI по проекту ТехноМания", new DateTime(2023, 4, 22, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9877), "Finished", "2 ч", "Разработка UI", "System", new DateTime(2023, 4, 22, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9874) }
+                    { new Guid("0f886c20-33e8-4fd8-a41c-3bf705d03c47"), "System", new DateTime(2023, 5, 8, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2732), new Guid("d78fbbe4-7447-4d05-833c-5eeb3950e0d5"), new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"), "Разработка ИС по проекту Смарт-Решения", new DateTime(2023, 6, 23, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2734), "InProcess", "10 ч", "Разработка ИС", "System", new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2732) },
+                    { new Guid("12a1f7cd-db28-4fd1-a63f-8adf27084174"), "System", new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2736), new Guid("d78fbbe4-7447-4d05-833c-5eeb3950e0d5"), new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"), "Редизайн ИС по проекту Смарт-Решения", new DateTime(2023, 7, 8, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2738), "Stopped", "5 ч", "Разработка ИС", "System", new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2737) },
+                    { new Guid("278c74e0-bfc0-48c0-8090-ee23cf303dae"), "System", new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2694), new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Моделирование БД для разработки по проекту Экосистем", new DateTime(2023, 6, 13, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2700), "Stopped", "12 ч", "Моделирование БД", "System", new DateTime(2023, 5, 17, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2696) },
+                    { new Guid("2f560daf-fd18-4320-addf-a160f65da673"), "System", new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2706), new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Проектирование ИС по проекту Экосистем", new DateTime(2023, 7, 3, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2708), "Stopped", "12 ч", "Проектирование ИС", "System", new DateTime(2023, 5, 23, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2706) },
+                    { new Guid("38c87236-80b8-471e-bad4-24c318ba022f"), "System", new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2711), new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"), new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"), "Тестирование ПО по проекту Экосистем", new DateTime(2023, 6, 7, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2713), "Stopped", "9 ч", "Тестирование ПО", "System", new DateTime(2023, 5, 20, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2711) },
+                    { new Guid("9980061a-f8b1-4149-bfed-84dc8d702527"), "System", new DateTime(2023, 5, 10, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2727), new Guid("554644c6-be02-42b2-84c0-cb4faec335bd"), new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"), "Разработка ТЗ по проекту Смарт-Решения", new DateTime(2023, 6, 18, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2729), "Stopped", "6 ч", "Разработка ТЗ", "System", new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2728) },
+                    { new Guid("d2016c56-3c07-47d6-8e63-124847836a6a"), "System", new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2722), new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"), new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), "Разработка ТЗ по проекту Энергопроект", new DateTime(2023, 5, 22, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2725), "Finished", "12 ч", "Разработка ТЗ", "System", new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2723) },
+                    { new Guid("e3e3675a-f500-4f8b-8a44-35a07b540300"), "System", new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2716), new Guid("33d85a99-bda5-4aca-8904-ece3cb1084ea"), new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"), "Разработка UI по проекту Энергопроект", new DateTime(2023, 5, 22, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2718), "Finished", "3 ч", "Разработка UI", "System", new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2717) }
                 });
 
             migrationBuilder.CreateIndex(

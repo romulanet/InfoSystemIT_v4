@@ -67,26 +67,38 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"),
-                            ContractDescription = "Разработка ПО для клиента",
-                            ContractTitle = "Разработка ПО",
+                            ContractDescription = "Разработка ПО.Дмитрий Загородский",
+                            ContractTitle = "Разработка ИС для Экосистем",
                             ContractTotalCost = "40 млн. руб",
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7100),
-                            CustomerId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1372),
+                            CustomerId = new Guid("7df41162-1895-48d4-90ed-321e4291789e"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7102)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1373)
                         },
                         new
                         {
                             Id = new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"),
-                            ContractDescription = "Обновление ПО для клиента",
-                            ContractTitle = "Обновление ПО",
+                            ContractDescription = "Обновление ИС Петр Васнецов",
+                            ContractTitle = "Обновление ИС Энергопроект",
                             ContractTotalCost = "20 млн. руб",
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7111),
-                            CustomerId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1379),
+                            CustomerId = new Guid("a8fd7901-4a88-4199-a08c-2ba723d094ea"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(7112)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1380)
+                        },
+                        new
+                        {
+                            Id = new Guid("3e53a63a-cd4c-49fd-816d-d8d5d136dce4"),
+                            ContractDescription = "Реинжениринг ИС. Василий Колыванов",
+                            ContractTitle = "Реинжениринг ИС Смарт-Решения",
+                            ContractTotalCost = "20 млн. руб",
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1383),
+                            CustomerId = new Guid("7fa2a4b2-c04c-4f2e-8e32-218a60914684"),
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(1383)
                         });
                 });
 
@@ -152,9 +164,9 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
+                            Id = new Guid("7df41162-1895-48d4-90ed-321e4291789e"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5372),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(526),
                             CustomerCompanyTitle = "Экосистемы",
                             CustomerCountry = "Россия",
                             CustomerFName = "Дмитрий",
@@ -164,23 +176,39 @@ namespace Persistence.Migrations
                             CustomerPostAddress = "г. Москва пр. Ленина 21 офис 14",
                             CustomerTelNumber = "89035678945",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5378)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(530)
                         },
                         new
                         {
-                            Id = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
+                            Id = new Guid("a8fd7901-4a88-4199-a08c-2ba723d094ea"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5400),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(544),
                             CustomerCompanyTitle = "Энергопроект",
                             CustomerCountry = "Россия",
                             CustomerFName = "Петр",
                             CustomerLName = "Васнецов",
                             CustomerMName = "Петрович",
-                            CustomerMailAddress = "energoProject@.ru",
+                            CustomerMailAddress = "energoProject@ep.ru",
                             CustomerPostAddress = "г. Воронеж ул. Воронина 56 офис 21",
                             CustomerTelNumber = "8910567890",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(5401)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(544)
+                        },
+                        new
+                        {
+                            Id = new Guid("7fa2a4b2-c04c-4f2e-8e32-218a60914684"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(548),
+                            CustomerCompanyTitle = "Смарт-Решения",
+                            CustomerCountry = "Россия",
+                            CustomerFName = "Василий",
+                            CustomerLName = "Колыванов",
+                            CustomerMName = "Иванович",
+                            CustomerMailAddress = "smartD@sd.ru",
+                            CustomerPostAddress = "г.Калуга ул. Ковалёва 15 офис 56",
+                            CustomerTelNumber = "8916766891",
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(549)
                         });
                 });
 
@@ -248,7 +276,7 @@ namespace Persistence.Migrations
                         {
                             Id = new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2121),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4014),
                             EmployeeFName = "Дмитрий",
                             EmployeeJobTitle = "Програмист",
                             EmployeeLName = "Коренков",
@@ -258,13 +286,13 @@ namespace Persistence.Migrations
                             EmployeeTelNumber = "89056673245",
                             TeamId = new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2123)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4015)
                         },
                         new
                         {
                             Id = new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2132),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4021),
                             EmployeeFName = "Виталий",
                             EmployeeJobTitle = "Аналитик",
                             EmployeeLName = "Валежник",
@@ -274,13 +302,13 @@ namespace Persistence.Migrations
                             EmployeeTelNumber = "89076222241",
                             TeamId = new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2133)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4021)
                         },
                         new
                         {
                             Id = new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2139),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4025),
                             EmployeeFName = "Андрей",
                             EmployeeJobTitle = "Менеджер проекта",
                             EmployeeLName = "Паринков",
@@ -290,13 +318,13 @@ namespace Persistence.Migrations
                             EmployeeTelNumber = "8970545821",
                             TeamId = new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2140)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4026)
                         },
                         new
                         {
                             Id = new Guid("33d85a99-bda5-4aca-8904-ece3cb1084ea"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2144),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4029),
                             EmployeeFName = "Пётр",
                             EmployeeJobTitle = "Дизайнер",
                             EmployeeLName = "Гордеев",
@@ -306,7 +334,39 @@ namespace Persistence.Migrations
                             EmployeeTelNumber = "8970545821",
                             TeamId = new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(2145)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4029)
+                        },
+                        new
+                        {
+                            Id = new Guid("554644c6-be02-42b2-84c0-cb4faec335bd"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4032),
+                            EmployeeFName = "Иван",
+                            EmployeeJobTitle = "Аналитик",
+                            EmployeeLName = "Василевский",
+                            EmployeeMName = "Васильевич",
+                            EmployeeMailAddress = "vasilevsky@prog.ru",
+                            EmployeePostAddress = "г.Мытищи ул. Ленина 54",
+                            EmployeeTelNumber = "8971567821",
+                            TeamId = new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"),
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4032)
+                        },
+                        new
+                        {
+                            Id = new Guid("d78fbbe4-7447-4d05-833c-5eeb3950e0d5"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4035),
+                            EmployeeFName = "Ольга",
+                            EmployeeJobTitle = "Програмист",
+                            EmployeeLName = "Гордеева",
+                            EmployeeMName = "Андреевна",
+                            EmployeeMailAddress = "o.gordeeva@prog.ru",
+                            EmployeePostAddress = "г.Москва пр. Мира 33 кв.234",
+                            EmployeeTelNumber = "8956789045",
+                            TeamId = new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"),
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(4036)
                         });
                 });
 
@@ -372,32 +432,48 @@ namespace Persistence.Migrations
                             Id = new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"),
                             ContractId = new Guid("6442d3ea-986d-4ed0-b249-6993fa75ed83"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8269),
-                            ProjectDescription = "Разработка ПО, Разработка и развёртывание",
-                            ProjectFinishData = new DateTime(2023, 8, 22, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2042),
+                            ProjectDescription = "Разработка ИС, Разработка и развёртывание",
+                            ProjectFinishData = new DateTime(2023, 9, 21, 0, 0, 0, 0, DateTimeKind.Local),
                             ProjectStatus = "InProcess",
                             ProjectTimeSpent = "300 ч",
-                            ProjectTitle = "Разработка ПО для компании ECOLine",
-                            ProjectType = "Разработка ПО",
+                            ProjectTitle = "Разработка ИС для Экосистем",
+                            ProjectType = "Разработка ИС",
                             TeamId = new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8271)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2043)
                         },
                         new
                         {
                             Id = new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"),
                             ContractId = new Guid("53b08e3d-7620-4f73-87ee-0b2d2686c179"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8312),
-                            ProjectDescription = "Разработка ПО, Разработка и развёртывание",
-                            ProjectFinishData = new DateTime(2023, 10, 1, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2070),
+                            ProjectDescription = "Обновление ИС, Обновление и тестирование",
+                            ProjectFinishData = new DateTime(2023, 9, 1, 0, 0, 0, 0, DateTimeKind.Local),
                             ProjectStatus = "InProcess",
-                            ProjectTimeSpent = "400 ч",
-                            ProjectTitle = "Разработка ПО для компании ТехноМания",
-                            ProjectType = "Разработка ПО",
+                            ProjectTimeSpent = "150 ч",
+                            ProjectTitle = "Обновление ИС Энергопроект",
+                            ProjectType = "Обновление ИС",
                             TeamId = new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"),
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(8314)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2072)
+                        },
+                        new
+                        {
+                            Id = new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"),
+                            ContractId = new Guid("3e53a63a-cd4c-49fd-816d-d8d5d136dce4"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2077),
+                            ProjectDescription = "Реинжениринг ИС, Реинжениринг и развёртывание",
+                            ProjectFinishData = new DateTime(2023, 10, 31, 0, 0, 0, 0, DateTimeKind.Local),
+                            ProjectStatus = "InProcess",
+                            ProjectTimeSpent = "400 ч",
+                            ProjectTitle = "Реинжениринг ИС Смарт-Решения",
+                            ProjectType = "Реинжениринг ИС",
+                            TeamId = new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"),
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2077)
                         });
                 });
 
@@ -458,61 +534,121 @@ namespace Persistence.Migrations
                         {
                             Id = new Guid("278c74e0-bfc0-48c0-8090-ee23cf303dae"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9842),
+                            CreatedOn = new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2694),
                             EmployeeId = new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"),
                             ProjectId = new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"),
-                            TaskDescription = "Моделирование БД для разработки по проекту ECOLine",
-                            TaskFinishData = new DateTime(2023, 5, 14, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9851),
+                            TaskDescription = "Моделирование БД для разработки по проекту Экосистем",
+                            TaskFinishData = new DateTime(2023, 6, 13, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2700),
                             TaskStatus = "Stopped",
                             TaskTimeSpent = "12 ч",
                             TaskTitle = "Моделирование БД",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9844)
+                            UpdatedOn = new DateTime(2023, 5, 17, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2696)
+                        },
+                        new
+                        {
+                            Id = new Guid("2f560daf-fd18-4320-addf-a160f65da673"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2706),
+                            EmployeeId = new Guid("d3223d1e-7ccd-4384-ac2c-734634e7b7f3"),
+                            ProjectId = new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"),
+                            TaskDescription = "Проектирование ИС по проекту Экосистем",
+                            TaskFinishData = new DateTime(2023, 7, 3, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2708),
+                            TaskStatus = "Stopped",
+                            TaskTimeSpent = "12 ч",
+                            TaskTitle = "Проектирование ИС",
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 23, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2706)
                         },
                         new
                         {
                             Id = new Guid("38c87236-80b8-471e-bad4-24c318ba022f"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9863),
+                            CreatedOn = new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2711),
                             EmployeeId = new Guid("64c2f517-4c27-4e23-adbb-70077bc80834"),
                             ProjectId = new Guid("1e9c86b9-5976-4713-8c01-1601b74e9d37"),
-                            TaskDescription = "Тестирование ПО по проекту ECOLine",
-                            TaskFinishData = new DateTime(2023, 5, 8, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9866),
+                            TaskDescription = "Тестирование ПО по проекту Экосистем",
+                            TaskFinishData = new DateTime(2023, 6, 7, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2713),
                             TaskStatus = "Stopped",
-                            TaskTimeSpent = "2 ч",
+                            TaskTimeSpent = "9 ч",
                             TaskTitle = "Тестирование ПО",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9863)
+                            UpdatedOn = new DateTime(2023, 5, 20, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2711)
                         },
                         new
                         {
                             Id = new Guid("e3e3675a-f500-4f8b-8a44-35a07b540300"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 14, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9872),
+                            CreatedOn = new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2716),
                             EmployeeId = new Guid("33d85a99-bda5-4aca-8904-ece3cb1084ea"),
                             ProjectId = new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"),
-                            TaskDescription = "Разработка UI по проекту ТехноМания",
-                            TaskFinishData = new DateTime(2023, 4, 22, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9877),
+                            TaskDescription = "Разработка UI по проекту Энергопроект",
+                            TaskFinishData = new DateTime(2023, 5, 22, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2718),
                             TaskStatus = "Finished",
-                            TaskTimeSpent = "2 ч",
+                            TaskTimeSpent = "3 ч",
                             TaskTitle = "Разработка UI",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 22, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9874)
+                            UpdatedOn = new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2717)
                         },
                         new
                         {
                             Id = new Guid("d2016c56-3c07-47d6-8e63-124847836a6a"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 14, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9882),
+                            CreatedOn = new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2722),
                             EmployeeId = new Guid("ec21ec2e-fc34-4235-9575-066f56c49f5f"),
                             ProjectId = new Guid("94b1f1ac-30ee-45f8-929a-ad77ca814000"),
-                            TaskDescription = "Разработка ТЗ по проекту ТехноМания",
-                            TaskFinishData = new DateTime(2023, 4, 22, 10, 31, 39, 163, DateTimeKind.Local).AddTicks(9886),
+                            TaskDescription = "Разработка ТЗ по проекту Энергопроект",
+                            TaskFinishData = new DateTime(2023, 5, 22, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2725),
                             TaskStatus = "Finished",
-                            TaskTimeSpent = "2 ч",
+                            TaskTimeSpent = "12 ч",
                             TaskTitle = "Разработка ТЗ",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 22, 7, 31, 39, 163, DateTimeKind.Utc).AddTicks(9883)
+                            UpdatedOn = new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2723)
+                        },
+                        new
+                        {
+                            Id = new Guid("9980061a-f8b1-4149-bfed-84dc8d702527"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 10, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2727),
+                            EmployeeId = new Guid("554644c6-be02-42b2-84c0-cb4faec335bd"),
+                            ProjectId = new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"),
+                            TaskDescription = "Разработка ТЗ по проекту Смарт-Решения",
+                            TaskFinishData = new DateTime(2023, 6, 18, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2729),
+                            TaskStatus = "Stopped",
+                            TaskTimeSpent = "6 ч",
+                            TaskTitle = "Разработка ТЗ",
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2728)
+                        },
+                        new
+                        {
+                            Id = new Guid("0f886c20-33e8-4fd8-a41c-3bf705d03c47"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 8, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2732),
+                            EmployeeId = new Guid("d78fbbe4-7447-4d05-833c-5eeb3950e0d5"),
+                            ProjectId = new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"),
+                            TaskDescription = "Разработка ИС по проекту Смарт-Решения",
+                            TaskFinishData = new DateTime(2023, 6, 23, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2734),
+                            TaskStatus = "InProcess",
+                            TaskTimeSpent = "10 ч",
+                            TaskTitle = "Разработка ИС",
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2732)
+                        },
+                        new
+                        {
+                            Id = new Guid("12a1f7cd-db28-4fd1-a63f-8adf27084174"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 14, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2736),
+                            EmployeeId = new Guid("d78fbbe4-7447-4d05-833c-5eeb3950e0d5"),
+                            ProjectId = new Guid("97d74d89-f2db-4cf9-b4c4-1d2d52ded14e"),
+                            TaskDescription = "Редизайн ИС по проекту Смарт-Решения",
+                            TaskFinishData = new DateTime(2023, 7, 8, 19, 32, 46, 380, DateTimeKind.Local).AddTicks(2738),
+                            TaskStatus = "Stopped",
+                            TaskTimeSpent = "5 ч",
+                            TaskTitle = "Разработка ИС",
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 22, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(2737)
                         });
                 });
 
@@ -556,21 +692,31 @@ namespace Persistence.Migrations
                         {
                             Id = new Guid("9e1257c8-00d1-4ba9-80af-f84b8e29431a"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1175),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3489),
                             TeamDescription = "Команда укомлектована аналитиком",
-                            TeamTitle = "Команда по проекту EcoLine",
+                            TeamTitle = "Команда по проекту Экосистем",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1178)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3491)
                         },
                         new
                         {
                             Id = new Guid("1c29869d-49e6-4a8e-a1eb-8773497e80fe"),
                             CreatedBy = "System",
-                            CreatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1185),
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3495),
                             TeamDescription = "Команда укомлектована дизайнером",
-                            TeamTitle = "Команда по проекту ТехноМания",
+                            TeamTitle = "Команда по проекту Энергопроект",
                             UpdatedBy = "System",
-                            UpdatedOn = new DateTime(2023, 4, 24, 7, 31, 39, 164, DateTimeKind.Utc).AddTicks(1186)
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3496)
+                        },
+                        new
+                        {
+                            Id = new Guid("f97fab25-21de-44cb-b6c2-5f1db493d614"),
+                            CreatedBy = "System",
+                            CreatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3498),
+                            TeamDescription = "Команда укомлектована аналитиком",
+                            TeamTitle = "Команда по проекту Смарт-Решения",
+                            UpdatedBy = "System",
+                            UpdatedOn = new DateTime(2023, 5, 24, 16, 32, 46, 380, DateTimeKind.Utc).AddTicks(3498)
                         });
                 });
 
@@ -660,6 +806,23 @@ namespace Persistence.Migrations
                             SecurityStamp = "WCBIVXTPLTZ57TRN53RAKPY6EM6V62CL",
                             TwoFactorEnabled = false,
                             UserName = "admin"
+                        },
+                        new
+                        {
+                            Id = "f3bd501d-6647-4f51-95ce-412ae3552ee9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c9a74009-ca76-4231-bad5-39b8f7663830",
+                            Email = "ravil@mail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Ravil",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "RAVIL@MAIL.COM",
+                            NormalizedUserName = "RAVIL",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMQrxMoeM/bI2Dtkpe/zkgr2QAQwRx1HZIkpBuqXBbgtsRfvB9dSgxBnATU0gSZQeg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "HR2DKDZZFCG555WQRJVEUZ4CMPVQPDSX",
+                            TwoFactorEnabled = false,
+                            UserName = "Ravil"
                         });
                 });
 
