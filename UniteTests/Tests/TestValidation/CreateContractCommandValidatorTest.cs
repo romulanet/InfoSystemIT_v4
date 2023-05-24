@@ -1,13 +1,5 @@
 ﻿using Business.CQRS.ContractUnit.Commands.CreateContract;
 using FluentValidation.Results;
-using NUnit.Framework;
-using Microsoft.AspNetCore.Routing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 using Assert = NUnit.Framework.Assert;
 
 namespace UnitTests.Tests.TestValidation
@@ -18,15 +10,14 @@ namespace UnitTests.Tests.TestValidation
 
         public CreateContractCommandValidatorTest() => _validator = new CreateContractCommandValidator();
 
-        [Test]
+        [Fact]
         public void CreateContractCommandValidator_Test()
         {
             //Arrange
             CreateContractCommand createContractCommand = GetCreateContractCommand();
 
-            CreateContractCommandValidator validator = new CreateContractCommandValidator();
             //Act
-            ValidationResult result = validator.Validate(createContractCommand);
+            ValidationResult result = _validator.Validate(createContractCommand);
 
             //Asert
             Assert.IsTrue(!result.Errors.Any());
