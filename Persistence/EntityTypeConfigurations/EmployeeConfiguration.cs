@@ -78,6 +78,38 @@ namespace Persistence.EntityTypeConfigurations
                    EmployeeMailAddress = "parinkov@prog.ru",
                    EmployeePostAddress = "г.Мытищи ул. Вологда 33",
                    TeamId = new Guid("1C29869D-49E6-4A8E-A1EB-8773497E80FE")
+               },
+               new Employee
+               {
+                   CreatedOn = DateTime.UtcNow,
+                   CreatedBy = Constants.UserName.System,
+                   UpdatedOn = DateTime.UtcNow,
+                   UpdatedBy = Constants.UserName.System,
+                   Id = new Guid("554644C6-BE02-42B2-84C0-CB4FAEC335BD"),
+                   EmployeeFName = "Иван",
+                   EmployeeMName = "Васильевич",
+                   EmployeeLName = "Василевский",
+                   EmployeeJobTitle = "Аналитик",
+                   EmployeeTelNumber = "8971567821",
+                   EmployeeMailAddress = "vasilevsky@prog.ru",
+                   EmployeePostAddress = "г.Мытищи ул. Ленина 54",
+                   TeamId = new Guid("F97FAB25-21DE-44CB-B6C2-5F1DB493D614")
+               },
+               new Employee
+               {
+                   CreatedOn = DateTime.UtcNow,
+                   CreatedBy = Constants.UserName.System,
+                   UpdatedOn = DateTime.UtcNow,
+                   UpdatedBy = Constants.UserName.System,
+                   Id = new Guid("D78FBBE4-7447-4D05-833C-5EEB3950E0D5"),
+                   EmployeeFName = "Ольга",
+                   EmployeeMName = "Андреевна",
+                   EmployeeLName = "Гордеева",
+                   EmployeeJobTitle = "Програмист",
+                   EmployeeTelNumber = "8956789045",
+                   EmployeeMailAddress = "o.gordeeva@prog.ru",
+                   EmployeePostAddress = "г.Москва пр. Мира 33 кв.234",
+                   TeamId = new Guid("F97FAB25-21DE-44CB-B6C2-5F1DB493D614")
                }
            );
         }

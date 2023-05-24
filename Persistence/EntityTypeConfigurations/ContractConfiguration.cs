@@ -22,10 +22,10 @@ namespace Persistence.EntityTypeConfigurations
                    UpdatedOn = DateTime.UtcNow,
                    UpdatedBy = Constants.UserName.System,
                    Id = new Guid("6442D3EA-986D-4ED0-B249-6993FA75ED83"),
-                   ContractTitle = "Разработка ПО",
-                   ContractDescription = "Разработка ПО для клиента",
+                   ContractTitle = "Разработка ИС для Экосистем",
+                   ContractDescription = "Разработка ПО.Дмитрий Загородский",
                    ContractTotalCost = "40 млн. руб",
-                   CustomerId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870")
+                   CustomerId = new Guid("7DF41162-1895-48D4-90ED-321E4291789E")
                },
                new Contract
                {
@@ -34,10 +34,22 @@ namespace Persistence.EntityTypeConfigurations
                    UpdatedOn = DateTime.UtcNow,
                    UpdatedBy = Constants.UserName.System,
                    Id = new Guid("53B08E3D-7620-4F73-87EE-0B2D2686C179"),
-                   ContractTitle = "Обновление ПО",
-                   ContractDescription = "Обновление ПО для клиента",
+                   ContractTitle = "Обновление ИС Энергопроект",
+                   ContractDescription = "Обновление ИС Петр Васнецов",
                    ContractTotalCost = "20 млн. руб",
-                   CustomerId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3")
+                   CustomerId = new Guid("A8FD7901-4A88-4199-A08C-2BA723D094EA")
+               },
+               new Contract
+               {
+                   CreatedOn = DateTime.UtcNow,
+                   CreatedBy = Constants.UserName.System,
+                   UpdatedOn = DateTime.UtcNow,
+                   UpdatedBy = Constants.UserName.System,
+                   Id = new Guid("3E53A63A-CD4C-49FD-816D-D8D5D136DCE4"),
+                   ContractTitle = "Реинжениринг ИС Смарт-Решения",
+                   ContractDescription = "Реинжениринг ИС. Василий Колыванов",
+                   ContractTotalCost = "20 млн. руб",
+                   CustomerId = new Guid("7FA2A4B2-C04C-4F2E-8E32-218A60914684")
                }
            );
         }
